@@ -54,7 +54,7 @@ The Board Manager URL is like a link that tells the Arduino software where to fi
 
 5. Should look something like this
 
-   <img src="https://github.com/romyaboudarham/M5StickCPlus2-Workshop/blob/main/media/successful-install.png" width="600" height="300">
+   <img src="https://github.com/romyaboudarham/M5StickCPlus2-Workshop/blob/main/media/successful-install.png" width="600" height="350">
 
 
 
