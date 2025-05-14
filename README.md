@@ -19,9 +19,16 @@ Additional instructions [here](https://docs.m5stack.com/en/arduino/arduino_ide) 
 The Board Manager URL is like a link that tells the Arduino software where to find the information it needs to work with your M5StickC Plus2 device.
 
 1. Open Arduino IDE to a new blank sketch
-2. Click Arudino -> Settings -> Add Aditional Board Manager URLS
+2. Click _Arduino -> Settings -> Add Aditional Board Manager URLS_
+   - Copy this URL: ```https://static-cdn.m5stack.com/resource/arduino/package_m5stack_index.json```
+   - Paste the URL into "Additional Board Manager URLs" text field
+
 ![Alt text](https://github.com/romyaboudarham/M5StickCPlus2-Workshop/blob/main/media/add-board-url-tutorial.png)
-4. Paste this URL: ```https://static-cdn.m5stack.com/resource/arduino/package_m5stack_index.json``` into "Additional Board Manager URLs" text field.
+
+3. In left sidebar, click "Boards Manager" icon
+   - Search for "M5Stack" and **Install**
+   
+![Alt text](https://github.com/romyaboudarham/M5StickCPlus2-Workshop/blob/main/media/install-library-tutorial.png)
 
 
 ## At the Workshop
@@ -29,29 +36,28 @@ The Board Manager URL is like a link that tells the Arduino software where to fi
 
 ### First steps: Verifying correct installation
 
-1. Connect Arduino via USB cable
+1. Connect M5Stick via USB cable
    - Windows? Might see “New Hardware Discovered” and later might see “New Hardware Ready for Use”.
    - Mac OS X? Might see “New Network Interface Found”. Click “Network Preferences…”,  click “Apply”, and when it finishes, click “Close”. It doesn’t matter if the configuration fails.
    - Linux? Nothing to do here
 
 2. Open Arduino software (IDE)
 
-3. Select _Tools -> Board_
-   - You have an Uno.
+3. Select _Tools -> Board -> M5Stack -> M5StickCPlus2_
 
-4. Select _Tools -> Port_
+4. Select _Tools -> Port_ 
    - Windows? Chose the largest COM number
-     - No COMs? Raise your hand for help or visit [troubleshooting](http://arduino.cc/en/Guide/Troubleshooting)
-   - Mac OS X? Chose either usbmodem - you should also see _(Arduino Uno)_
-     - No usbmodem? Raise your hand for help or visit [troubleshooting](http://arduino.cc/en/Guide/Troubleshooting)
+     - No COMs? Raise your hand for help
+   - Mac OS X? Chose either usbmodem - you should also see _(LilyGo T-Display)_
+     - No usbmodem? Raise your hand for help
    - Linux? There is only one choice
 
 5. Open _File->Examples->Basics->Blink_
    - Click “Upload”
    - Look for errors in the bottom window of the program
-     - Errors? Raise your hand for help or visit [troubleshooting](http://arduino.cc/en/Guide/Troubleshooting)
+     - Errors? Raise your hand for help
    - Look for the amber LED on your Arduino to be blinking
-     - No blinking? Raise your hand for help or visit [troubleshooting](http://arduino.cc/en/Guide/Troubleshooting)
+     - No blinking? Raise your hand for help
 
 *******************************************************************************
 ### Is this thing on?
