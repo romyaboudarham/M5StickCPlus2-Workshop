@@ -1,4 +1,4 @@
-# SF Design Week - Interactive Wearables Workshop in CCA’s Hybrid Lab
+# SF Design Week - Interactive Wearables Workshop
 
 By Romy Aboudarham with support from Sudhu Tewari
 
@@ -19,7 +19,8 @@ Additional instructions [here](https://docs.m5stack.com/en/arduino/arduino_ide) 
 The Board Manager URL is like a link that tells the Arduino software where to find the information it needs to work with your M5StickC Plus2 device.
 
 1. Open Arduino IDE to a new blank sketch
-2. go to
+2. Click Arudino -> Settings -> Add Aditional Board Manager URLS
+![Alt text](https://github.com/romyaboudarham/M5StickCPlus2-Workshop/blob/main/media/add-board-url-tutorial.png)
 4. Paste this URL: ```https://static-cdn.m5stack.com/resource/arduino/package_m5stack_index.json``` into "Additional Board Manager URLs" text field.
 
 
