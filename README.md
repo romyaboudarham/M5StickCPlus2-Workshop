@@ -60,7 +60,7 @@ The Board Manager URL is like a link that tells the Arduino software where to fi
 
 *******************************************************************************
 ### Is this thing on?
-Copy the code below and paste it into a new Arduino sketch _OR_ download and open this example sketch: [HelloWorld.ino](/examples/HelloWorld/HelloWorld.ino)
+1. Copy the code below and paste it into a new, empty Arduino sketch _OR_ download and open this example sketch: [HelloWorld.ino](/examples/HelloWorld/HelloWorld.ino)
 
 ```cpp
 #include <M5StickCPlus2.h> // library
@@ -80,7 +80,8 @@ void setup() {
   // color options: https://github.com/m5stack/M5GFX/blob/b1a0e54e79a1c50d1d0d628524bbde7275423b5f/src/M5GFX.h#L143
   StickCP2.Display.setTextColor(GREEN);
   StickCP2.Display.setTextSize(1); // try 2!
-  // text reference point options: https://github.com/lovyan03/LovyanGFX/blob/55a0f66d9278faa596c8d51a8e8a3e537dd8f44f/src/lgfx/v1/misc/enum.hpp#L135
+  // text reference point options:       
+  https://github.com/lovyan03/LovyanGFX/blob/55a0f66d9278faa596c8d51a8e8a3e537dd8f44f/src/lgfx/v1/misc/enum.hpp#L135
   StickCP2.Display.setTextDatum(top_left);
   StickCP2.Display.drawString("Hello World!", 0, 0);
   /*** CUSTOMIZE END ***/
@@ -92,13 +93,24 @@ void loop() {
   Serial.println("Printing in Serial Monitor!");
 }
 ```
-The _Serial_ commands allow Arduino IDE to send a message to your laptop. In order to see this message you need to open the _Serial Monitor_ by clicking on the magnifying glass near the top right corner.
-- If you are using Arduino IDE 1.8._ the serial monitor will open in another window.
-- If you are using Arduino IDE 2._._ the serial monitor will display at the bottom of the IDE window.
+2. "Compile" & "Upload" the code to the device by clicking the Arrow in the top left corner
+   - Compile = translate this code (C++) into machine-readable language. This step also checks for correct syntax in your code.
+   - Upload = sending the code to the device, where the code is now stored on the device, so when you disconnect it form your computer the code still lives on the device.
 
-a little code anatomy:
+3. Open up the "Serial Monitor" by clicking on the magnifying glass near the top right corner (the monitor will either open in a new window or at the bottom of your screen depending on your computer).
+   - This is where we will see any text within "Serial.println(...)".
+   - The _Serial_ commands allow Arduino IDE to send a message to your laptop.
+   - Baud rate = the rate at which information is transferred in a communication channel. "115200 baud" means that the serial port is capable of transferring a maximum of 115200 bits per second.
+
+<img src="https://github.com/romyaboudarham/M5StickCPlus2-Workshop/blob/main/media/HelloWorld.png" width="720" height="450">  
+
+Success!
+   
+<img src="https://github.com/romyaboudarham/M5StickCPlus2-Workshop/blob/main/media/HelloWorldM5Stick.jpeg" width="500" height="300"> 
+
+#### How is this working??
 - The [setup()](https://www.arduino.cc/reference/en/language/structure/sketch/setup/) function is called when a sketch starts.
-  - Use it to initialize variables, pin modes, start using libraries, etc.
+  - Use it to initialize variables, pin modes, start using libraries, etc. In our case, this is where we set up the screen display features (text color, font, orientation, default text etc.) 
   - The setup() function will only run once, after each power-up or reset of the Arduino board.
 - The [loop()](https://www.arduino.cc/reference/en/language/structure/sketch/loop/) the loop() function does precisely what its name suggests, and _loops_ consecutively through your list of instructions to control the Arduino.
   - The loop() functions runs continuously as long as the Arduino is powered on.
