@@ -60,7 +60,7 @@ The Board Manager URL is like a link that tells the Arduino software where to fi
 
 *******************************************************************************
 ### Is this thing on?
-1. Copy the code below and paste it into a new, empty Arduino sketch _OR_ download and open this example sketch: [HelloWorld.ino](/examples/HelloWorld/HelloWorld.ino)
+1. Copy the code below and paste it into a new, empty Arduino sketch _OR_ download and open this example sketch: [HelloWorld.ino](/examples/01_HelloWorld/HelloWorld/HelloWorld.ino)
 
 ```cpp
 #include <M5StickCPlus2.h> // library
@@ -120,4 +120,4 @@ Success!
 More on the specific functions and variables soon! Let's make something happen in the real world first.
 
 *******************************************************************************
-### How to use Arduino to turn something ON and OFF
+### Let's make and move shapes OOO pretty!
