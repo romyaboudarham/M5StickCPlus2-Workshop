@@ -18,7 +18,7 @@ Additional instructions [here](https://docs.m5stack.com/en/arduino/arduino_ide) 
 #### 2. Install M5StickC Plus2 Board Management to Arduino IDE
 The Board Manager URL is like a link that tells the Arduino software where to find the information it needs to work with your M5StickC Plus2 device.
 
-1. Open Arduino IDE to a new blank sketch
+1. Open Arduino Software (IDE)
 2. Click _Arduino->Settings->Add Aditional Board Manager URLS_
    - Copy this URL: ```https://static-cdn.m5stack.com/resource/arduino/package_m5stack_index.json```
    - Paste the URL into "Additional Board Manager URLs" text field
@@ -48,8 +48,8 @@ The Board Manager URL is like a link that tells the Arduino software where to fi
 4. Select _Tools -> Port_ 
    - Windows? Chose the largest COM number
      - No COMs? Raise your hand for help
-   - Mac OS X? Chose either usbmodem - you should also see _(LilyGo T-Display)_
-     - No usbmodem? Raise your hand for help
+   - Mac OS X? Chose either usbserial - you should also see _(LilyGo T-Display)_
+     - No usbserial? Raise your hand for help
    - Linux? There is only one choice
 
 5. Should look something like this
@@ -63,28 +63,36 @@ The Board Manager URL is like a link that tells the Arduino software where to fi
 Copy the code below and paste it into a new Arduino sketch _OR_ download and open this example sketch: [HelloWorld.ino](/examples/HelloWorld/HelloWorld.ino)
 
 ```cpp
-/*
-  Hello World
-  A "Hello, World!" program generally is a computer program that
-	outputs or displays the message "Hello, World!".
-	Such a program is very simple in most programming languages,
-	and is often used to illustrate the basic syntax of a programming language.
-	It is often the first program written by people learning to code
-*/
+#include <M5StickCPlus2.h> // library
 
 void setup() {
-//initialize serial communications at 9600 baud rate
-Serial.begin(9600);
+  // initiatlize the device using the M5StickCPlus2 library
+  auto cfg = M5.config();
+  StickCP2.begin(cfg);
+
+  Serial.begin(115200);
+
+  /*** CUSTOMIZE BEGIN ***/
+  // 0: portrait, 1: landscape, 2: portrait-flipped, 3: landscape-flipped
+  StickCP2.Display.setRotation(1);
+  // font options: https://github.com/lovyan03/LovyanGFX/blob/55a0f66d9278faa596c8d51a8e8a3e537dd8f44f/src/lgfx/v1/lgfx_fonts.hpp#L329
+  StickCP2.Display.setTextFont(&fonts::Orbitron_Light_24);
+  // color options: https://github.com/m5stack/M5GFX/blob/b1a0e54e79a1c50d1d0d628524bbde7275423b5f/src/M5GFX.h#L143
+  StickCP2.Display.setTextColor(GREEN);
+  StickCP2.Display.setTextSize(1); // try 2!
+  // text reference point options: https://github.com/lovyan03/LovyanGFX/blob/55a0f66d9278faa596c8d51a8e8a3e537dd8f44f/src/lgfx/v1/misc/enum.hpp#L135
+  StickCP2.Display.setTextDatum(top_left);
+  StickCP2.Display.drawString("Hello World!", 0, 0);
+  /*** CUSTOMIZE END ***/
 }
 
-void loop(){
-//send 'Hello, world!' over the serial port
-Serial.println("Hello, world!");
-//wait 100 milliseconds so we don't drive ourselves crazy
-delay(1000);
+void loop() {
+  StickCP2.update();
+
+  Serial.println("Printing in Serial Monitor!");
 }
 ```
-The _Serial_ commands allow Arduino to send a message to your laptop. In order to see this message you need to open the _Serial Monitor_ by clicking on the magnifying glass near the top right corner.
+The _Serial_ commands allow Arduino IDE to send a message to your laptop. In order to see this message you need to open the _Serial Monitor_ by clicking on the magnifying glass near the top right corner.
 - If you are using Arduino IDE 1.8._ the serial monitor will open in another window.
 - If you are using Arduino IDE 2._._ the serial monitor will display at the bottom of the IDE window.
 
