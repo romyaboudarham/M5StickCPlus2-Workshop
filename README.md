@@ -116,8 +116,10 @@ Success!
   - The loop() functions runs continuously as long as the Arduino is powered on.
   - Each instruction is executed in order from top to bottom.
   - Arduino only executes one instruction at a time.
-
-More on the specific functions and variables soon! Let's make something happen in the real world first.
-
+ 
+#### YOUR TURN
+- Change the code to display "Hello YOUR-NAME" on the watch and in the Serial Monitor
+- Change the color, font, size, placement of the text
 *******************************************************************************
 ### Let's make and move shapes OOO pretty!
+
