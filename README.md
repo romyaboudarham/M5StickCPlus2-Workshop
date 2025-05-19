@@ -130,7 +130,7 @@ Success!
 *******************************************************************************
 ### Let's make and move shapes oOOooOo pretty!
 #### Making the Shapes
-1. Within the "loop()" function, add this line. Compile & Upload.
+1. Within the **"loop()"** function, add this line. Compile & Upload. (Right arrow in upper left)
 ```cpp
 StickCP2.Display.fillRect(0, 0, 100, 50, CYAN); // x (top-left), y (top-left), width, height, color
 ```
@@ -142,5 +142,32 @@ StickCP2.Display.fillCircle(180, 50, 30, VIOLET); // x (center), y (center), rad
 StickCP2.Display.fillEllipse(70, 75, 50, 30, ORANGE); // x (center), y (center), radius-x, radius-y, color
 StickCP2.Display.fillTriangle(180, 135, 200, 100, 240, 135, YELLOW); // x0, y0, x1, y1, x2, y2, color
 ```
+
 &ensp; **YOUR TURN:** Change the values of the shapes and make some art!
 #### Moving the Shapes
+1. VARIABLES! Make the following additions and changes in your code. 
+- The 2 lines above loop() create **variables** (rectX, rectY) that hold **integers** (int) that represent the x and y coordinate of your rectangle. 1. If you have multiple rectangles, you will want multiple variables with distinct names. For example, rect1_X, rect2_X, etc.
+- The numbers for the x and y coordinates are now replaced with these variables.
+```
+int rectX = 0; // <-- ADD
+int rectY = 0; // <-- ADD 
+
+void loop() {
+   StickCP2.update();
+
+   StickCP2.Display.fillRect(rectX, rectY, 100, 50, CYAN); // <-- CHANGE the X & Y values
+  ...
+```
+Compile to check for errors (checkmark in upper left)
+
+2. IF STATEMENTS!
+- **QUESTION** Since we know that loop() is endlessing looping and drawing the rectangle at position (0,0), what do we need to do to the rectangle's X value to move it across the screen to the right?
+- **QUESTION** The rectangle is going to move infinitely across and off the screen, how do we account for boundaries of the screen and have the shape move back and forth?  
+
+Final code for moving rectangle back and forth here: [Output_MovingRectangle.ino](/examples/01_HelloWorld/HelloWorld/HelloWorld.ino)
+- **CHALLENGE** move the rectangle up and down (hint: similar to moving rectX, but with rectY, a new variable for rectSpeedY, and using screenHeight)
+- **CHALLENGE** make all the shapes move!  
+
+Final code for moving all shapes here: [Output_MovingShapes.ino](/examples/01_HelloWorld/HelloWorld/HelloWorld.ino)
+
+### Let's move a shape when we press a button!
