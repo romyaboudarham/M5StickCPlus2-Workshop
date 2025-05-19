@@ -164,10 +164,10 @@ Compile to check for errors (checkmark in upper left)
 - **QUESTION** Since we know that loop() is endlessing looping and drawing the rectangle at position (0,0), what do we need to do to the rectangle's X value to move it across the screen to the right?
 - **QUESTION** The rectangle is going to move infinitely across and off the screen, how do we account for boundaries of the screen and have the shape move back and forth?  
 
-Final code for moving rectangle back and forth here: [Output_MovingRectangle.ino](/examples/01_HelloWorld/HelloWorld/HelloWorld.ino)
+Final code for moving rectangle back and forth here: [Output_MovingRectangle.ino](examples/02_Output_MovingShapes/Output_MovingRectangle/Output_MovingRectangle.ino)
 - **CHALLENGE** move the rectangle up and down (hint: similar to moving rectX, but with rectY, a new variable for rectSpeedY, and using screenHeight)
 - **CHALLENGE** make all the shapes move!  
 
-Final code for moving all shapes here: [Output_MovingShapes.ino](/examples/01_HelloWorld/HelloWorld/HelloWorld.ino)
+Final code for moving all shapes here: [Output_MovingShapes.ino](examples/02_Output_MovingShapes/Output_MovingAllShapes/Output_MovingAllShapes.ino)
 
 ### Let's move a shape when we press a button!
