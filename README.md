@@ -134,7 +134,8 @@ Success!
 ```cpp
 StickCP2.Display.fillRect(0, 0, 100, 50, CYAN); // x (top-left), y (top-left), width, height, color
 ```
-&ensp; **YOUR TURN:** Change the x, y, width, height, and color values
+&ensp; **YOUR TURN:** Change the x, y, width, height, and color values  
+
 2. Now add these lines. Compile & Upload.
 ```cpp
 // shape options: https://github.com/lovyan03/LovyanGFX/blob/5438181440c71cf30bbdc347b0b1597ae3ebf77d/src/lgfx/v1/LGFXBase.hpp#L192
