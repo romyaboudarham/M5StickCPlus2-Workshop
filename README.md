@@ -54,7 +54,7 @@ The Board Manager URL is like a link that tells the Arduino software where to fi
 
 5. Should look something like this
 
-   <img src="https://github.com/romyaboudarham/M5StickCPlus2-Workshop/blob/main/media/successful-install.png" width="600" height="350">
+   <img src="https://github.com/romyaboudarham/M5StickCPlus2-Workshop/blob/main/media/successful-install.png" style="width: 600px; height: auto;">
 
 
 
@@ -108,11 +108,11 @@ void loop() {
    - The _Serial_ commands allow Arduino IDE to send a message to your laptop.
    - Baud rate = the rate at which information is transferred in a communication channel. "115200 baud" means that the serial port is capable of transferring a maximum of 115200 bits per second.
 
-<img src="https://github.com/romyaboudarham/M5StickCPlus2-Workshop/blob/main/media/HelloWorld.png" width="720" height="450">  
+<img src="https://github.com/romyaboudarham/M5StickCPlus2-Workshop/blob/main/media/HelloWorld.png" style="width: 720px; height: auto;">  
 
 Success!
    
-<img src="https://github.com/romyaboudarham/M5StickCPlus2-Workshop/blob/main/media/HelloWorldM5Stick.jpeg" width="500" height="300"> 
+<img src="https://github.com/romyaboudarham/M5StickCPlus2-Workshop/blob/main/media/HelloWorldM5Stick.jpeg" style="width: 500px; height: auto;"> 
 
 #### How is this working??
 - The [setup()](https://www.arduino.cc/reference/en/language/structure/sketch/setup/) function is called when a sketch starts.
@@ -130,6 +130,10 @@ Success!
 *******************************************************************************
 ### Let's make and move shapes oOOooOo pretty!
 #### Making the Shapes
+Screens use a coordinate system where (0,0) starts at the top-left corner. The x-axis goes right and is the first number in the pair. The y-axis goes down and is the second number in the pair (x,y). Each pixel’s position is marked by how far it is from the top-left. This is how most LED and digital screens work when placing or lighting up pixels.  
+
+<img src="https://github.com/romyaboudarham/M5StickCPlus2-Workshop/blob/main/media/axis.png" style="width: 550px; height: auto;"> 
+
 1. Within the **"loop()"** function, add this line. Compile & Upload. (Right arrow in upper left)
 ```cpp
 StickCP2.Display.fillRect(0, 0, 100, 50, CYAN); // x (top-left), y (top-left), width, height, color
