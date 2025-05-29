@@ -29,12 +29,13 @@ void setup() {
 void loop() {
   sprite->fillScreen(BLACK); // Clear the sprite by filling it with black
 
-  // CUSTOMIZE
+  // CUSTOMIZE BEGIN
   sprite->fillRect(0, 0, 100, 50, CYAN); // Draw rectangle: x (top-left), y (top-left), width, height, color
   // shape options: https://github.com/lovyan03/LovyanGFX/blob/5438181440c71cf30bbdc347b0b1597ae3ebf77d/src/lgfx/v1/LGFXBase.hpp#L192
   sprite->fillCircle(180, 50, 30, VIOLET); // x (center), y (center), radius, color
   sprite->fillEllipse(70, 75, 50, 30, ORANGE); // x (center), y (center), radius-x, radius-y, color
   sprite->fillTriangle(180, 135, 200, 100, 240, 135, YELLOW); // x0, y0, x1, y1, x2, y2, color
+  // CUSTOMIZE END
 
   sprite->pushSprite(0, 0); // Push the finished drawing from the sprite onto the actual screen
 }
