@@ -21,15 +21,19 @@ The Board Manager URL is a link that tells the Arduino software where to find th
 **0.2.1** Open Arduino Software (IDE) &nbsp;&nbsp;&nbsp;&nbsp;
 
 **0.2.2** Click _Arduino->Settings->Add Aditional Board Manager URLS_ &nbsp;&nbsp;&nbsp;&nbsp;
+<img src="https://github.com/romyaboudarham/M5StickCPlus2-Workshop/blob/main/media/0.2.2a-arudino_settings.png" style="width: 700px; height: auto;">
+
+<img src="https://github.com/romyaboudarham/M5StickCPlus2-Workshop/blob/main/media/0.2.2b-open_urls.png" style="width: 700px; height: auto;">
+   
    - Copy this URL: ```https://static-cdn.m5stack.com/resource/arduino/package_m5stack_index.json```
    - Paste the URL into "Additional Board Manager URLs" text field
 
-![Alt text](https://github.com/romyaboudarham/M5StickCPlus2-Workshop/blob/main/media/add-board-url-tutorial.png)
+<img src="https://github.com/romyaboudarham/M5StickCPlus2-Workshop/blob/main/media/0.2.2c-paste_url.png" style="width: 700px; height: auto;">
 
 **0.2.3** In left sidebar, click "Boards Manager" icon &nbsp;&nbsp;&nbsp;&nbsp;
    - Search for "M5Stack" and **Install**
    
-![Alt text](https://github.com/romyaboudarham/M5StickCPlus2-Workshop/blob/main/media/install-library-tutorial.png)
+<img src="https://github.com/romyaboudarham/M5StickCPlus2-Workshop/blob/main/media/install-library-tutorial.png" style="width: 700px; height: auto;">
 
 ### 0.3 Install M5StickCPlus2 Library to Arduino IDE
 
