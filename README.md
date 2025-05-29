@@ -8,59 +8,60 @@ M5StickCPlus2 watch & USB cables will be provided for you to use and keep during
 
 If you have questions prior to or after the workshop please contact Romy: romyaboudarham@gmail.com
 
-## Before the Workshop
-#### 1. Install Arduino Software
+## Section 0 - Before the Workshop
+#### 0.1 Install Arduino Software
 Arduino software (IDE) runs on Windows, Mac OSX, and Linux. Please download and install the (free) [Arduino software here](http://arduino.cc/en/Main/Software).  <!-- We prefer to use an older version of the Arduino IDE: Version 1.8.19. Feel free to download the newer version as well and run them both for comparison. -->
 Please bring your laptop, with the software installed, to the workshop. **Laptops with the Arduino IDE installed will be provided for those without one**
 
 Additional instructions [on M5Stack's Arduino instructions here](https://docs.m5stack.com/en/arduino/arduino_ide) and [Adafruit's Arduino lessons here](https://learn.adafruit.com/ladyadas-learn-arduino-lesson-number-0/download-software)
 
-#### 2. Install M5StickC Plus2 Board Management to Arduino IDE
-The Board Manager URL is like a link that tells the Arduino software where to find the information it needs to work with your M5StickC Plus2 device.
+#### 0.2 Install M5StickC Plus2 Board Management to Arduino IDE
+The Board Manager URL is a link that tells the Arduino software where to find the information it needs to work with your M5StickC Plus2 device.
 
-1. Open Arduino Software (IDE)
-2. Click _Arduino->Settings->Add Aditional Board Manager URLS_
+**0.2.1** Open Arduino Software (IDE) &nbsp;&nbsp;&nbsp;&nbsp;
+
+**0.2.2** Click _Arduino->Settings->Add Aditional Board Manager URLS_ &nbsp;&nbsp;&nbsp;&nbsp;
    - Copy this URL: ```https://static-cdn.m5stack.com/resource/arduino/package_m5stack_index.json```
    - Paste the URL into "Additional Board Manager URLs" text field
 
 ![Alt text](https://github.com/romyaboudarham/M5StickCPlus2-Workshop/blob/main/media/add-board-url-tutorial.png)
 
-3. In left sidebar, click "Boards Manager" icon
+**0.2.3** In left sidebar, click "Boards Manager" icon &nbsp;&nbsp;&nbsp;&nbsp;
    - Search for "M5Stack" and **Install**
    
 ![Alt text](https://github.com/romyaboudarham/M5StickCPlus2-Workshop/blob/main/media/install-library-tutorial.png)
 
 
-## At the Workshop
+## Section 1 - At the Workshop
  - Please interrupt any time with questions.
 
-### First steps: Verifying correct installation
+### 1.1 First steps: Verifying correct installation
 
-1. Connect M5Stick via USB cable
+**1.1.1** Connect M5Stick via USB cable &nbsp;&nbsp;&nbsp;&nbsp;
    - Windows? Might see “New Hardware Discovered” and later might see “New Hardware Ready for Use”.
    - Mac OS X? Might see “New Network Interface Found”. Click “Network Preferences…”,  click “Apply”, and when it finishes, click “Close”. It doesn’t matter if the configuration fails.
    - Linux? Nothing to do here
 
-2. Open Arduino software (IDE)
+**1.1.2** Open Arduino software (IDE) &nbsp;&nbsp;&nbsp;&nbsp;
 
-3. Select _Tools->Board-> M5Stack->M5StickCPlus2_
+**1.1.3** Select _Tools->Board-> M5Stack->M5StickCPlus2_ (If you don't see "M5StickCPlus2" you may not have correctly installed the board manager URL in the previous step) &nbsp;&nbsp;&nbsp;&nbsp;
 
-4. Select _Tools -> Port_ 
+**1.1.4** Select _Tools -> Port_ &nbsp;&nbsp;&nbsp;&nbsp;
    - Windows? Chose the largest COM number
      - No COMs? Raise your hand for help
    - Mac OS X? Chose either usbserial - you should also see _(LilyGo T-Display)_
      - No usbserial? Raise your hand for help
    - Linux? There is only one choice
 
-5. Should look something like this
+**1.1.5** Should look something like this &nbsp;&nbsp;&nbsp;&nbsp;
 
-   <img src="https://github.com/romyaboudarham/M5StickCPlus2-Workshop/blob/main/media/successful-install.png" style="width: 600px; height: auto;">
+   <img src="https://github.com/romyaboudarham/M5StickCPlus2-Workshop/blob/main/media/successful-install.png" style="width: 700px; height: auto;">
 
 
 
 *******************************************************************************
-### Is this thing on?
-1. Copy the code below and paste it into a new, empty Arduino sketch _OR_ download and open this example sketch: [HelloWorld.ino](/examples/01_HelloWorld/HelloWorld/HelloWorld.ino)
+### 1.2 Is this thing on?
+**1.2.1**  Copy the code below and paste it into a new, empty Arduino sketch _OR_ download and open this example sketch: [HelloWorld.ino](/examples/01_HelloWorld/HelloWorld/HelloWorld.ino) &nbsp;&nbsp;&nbsp;&nbsp;
 
 ```cpp
 #include <M5StickCPlus2.h> // this 'include' line includes the M5StickCPlus2 library
@@ -100,11 +101,11 @@ void loop() {
   Serial.println("Printing in Serial Monitor!");
 }
 ```
-2. "Compile" & "Upload" the code to the device by clicking the Arrow in the top left corner
+**1.2.2** "Compile" & "Upload" the code to the device by clicking the Arrow in the top left corner &nbsp;&nbsp;&nbsp;&nbsp;
    - Compile = translate this code (C++) into machine-readable language. This step also checks for correct syntax in your code.
    - Upload = sending the code to the device, where the code is now stored on the device, so when you disconnect it form your computer the code still lives on the device.
 
-3. Open up the "Serial Monitor" by clicking on the magnifying glass near the top right corner (the monitor will either open in a new window or at the bottom of your screen depending on your computer).
+**1.2.3** Open up the "Serial Monitor" by clicking on the magnifying glass near the top right corner (the monitor will either open in a new window or at the bottom of your screen depending on your computer). &nbsp;&nbsp;&nbsp;&nbsp;
    - This is where we will see any text within "Serial.println(...)".
    - The _Serial_ commands allow Arduino IDE to send a message to your laptop.
    - Baud rate = the rate at which information is transferred in a communication channel. "115200 baud" means that the serial port is capable of transferring a maximum of 115200 bits per second.
@@ -129,19 +130,19 @@ Success!
 - Change the color, font, size, placement of the text
 - CHALLENGE: center the text (hint: will need to use screenWidth and screenHeight from lines 16 and 17)
 *******************************************************************************
-### Let's make and move shapes oOOooOo pretty!
-#### Making the Shapes
+## Section 2 - Let's make and move shapes oOOooOo pretty!
+### 2.1 Making the Shapes
 Screens use a coordinate system where (0,0) starts at the top-left corner. The x-axis goes right and is the first number in the pair. The y-axis goes down and is the second number in the pair (x,y). Each pixel’s position is marked by how far it is from the top-left. This is how most LED and digital screens work when placing or lighting up pixels.  
 
 <img src="https://github.com/romyaboudarham/M5StickCPlus2-Workshop/blob/main/media/axis.png" style="width: 550px; height: auto;"> 
 
-1. Within the **"loop()"** function, add this line. Compile & Upload. (Right arrow in upper left)
+**2.1.1** Within the **"loop()"** function, add this line. Compile & Upload. (Right arrow in upper left) &nbsp;&nbsp;&nbsp;&nbsp;
 ```cpp
 StickCP2.Display.fillRect(0, 0, 100, 50, CYAN); // x (top-left), y (top-left), width, height, color
 ```
 &ensp; **YOUR TURN:** Change the x, y, width, height, and color values  
 
-2. Now add these lines. Compile & Upload.
+**2.1.2** Now add these lines. Compile & Upload. &nbsp;&nbsp;&nbsp;&nbsp;
 ```cpp
 // shape options: https://github.com/lovyan03/LovyanGFX/blob/5438181440c71cf30bbdc347b0b1597ae3ebf77d/src/lgfx/v1/LGFXBase.hpp#L192
 StickCP2.Display.fillCircle(180, 50, 30, VIOLET); // x (center), y (center), radius, color
@@ -150,8 +151,8 @@ StickCP2.Display.fillTriangle(180, 135, 200, 100, 240, 135, YELLOW); // x0, y0, 
 ```
 
 &ensp; **YOUR TURN:** Change the values of the shapes and make some art!
-#### Moving the Shapes
-1. VARIABLES! Make the following additions and changes in your code. 
+### 2.2 Moving the Shapes
+**2.2.1** VARIABLES! Make the following additions and changes in your code. &nbsp;&nbsp;&nbsp;&nbsp;
 - The 2 lines above loop() create **variables** (rectX, rectY) that hold **integers** (int) that represent the x and y coordinate of your rectangle. 1. If you have multiple rectangles, you will want multiple variables with distinct names. For example, rect1_X, rect2_X, etc.
 - The numbers for the x and y coordinates are now replaced with these variables.
 ```
@@ -166,7 +167,7 @@ void loop() {
 ```
 Compile to check for errors (checkmark in upper left)
 
-2. IF STATEMENTS!
+**2.2.2** IF STATEMENTS! &nbsp;&nbsp;&nbsp;&nbsp;
 - **QUESTION** Since we know that loop() is endlessing looping and drawing the rectangle at position (0,0), what do we need to do to the rectangle's X value to move it across the screen to the right?
 - **QUESTION** The rectangle is going to move infinitely across and off the screen, how do we account for boundaries of the screen and have the shape move back and forth?  
 
@@ -176,4 +177,4 @@ Final code for moving rectangle back and forth here: [Output_MovingRectangle.ino
 
 Final code for moving all shapes here: [Output_MovingShapes.ino](examples/02_Output_MovingShapes/Output_MovingAllShapes/Output_MovingAllShapes.ino)
 
-### Let's move a shape when we press a button!
+## Section 3 - Let's move a shape when we press a button!
