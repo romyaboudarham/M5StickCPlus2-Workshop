@@ -13,7 +13,7 @@ If you have questions prior to or after the workshop please contact Romy: romyab
 Arduino software (IDE) runs on Windows, Mac OSX, and Linux. Please download and install the (free) [Arduino software here](http://arduino.cc/en/Main/Software).  <!-- We prefer to use an older version of the Arduino IDE: Version 1.8.19. Feel free to download the newer version as well and run them both for comparison. -->
 Please bring your laptop, with the software installed, to the workshop. **Laptops with the Arduino IDE installed will be provided for those without one**
 
-Additional instructions [here](https://docs.m5stack.com/en/arduino/arduino_ide) and [here](https://learn.adafruit.com/ladyadas-learn-arduino-lesson-number-0/download-software)
+Additional instructions [on M5Stack's Arduino instructions here](https://docs.m5stack.com/en/arduino/arduino_ide) and [Adafruit's Arduino lessons here](https://learn.adafruit.com/ladyadas-learn-arduino-lesson-number-0/download-software)
 
 #### 2. Install M5StickC Plus2 Board Management to Arduino IDE
 The Board Manager URL is like a link that tells the Arduino software where to find the information it needs to work with your M5StickC Plus2 device.
