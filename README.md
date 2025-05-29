@@ -9,13 +9,13 @@ M5StickCPlus2 watch & USB cables will be provided for you to use and keep during
 If you have questions prior to or after the workshop please contact Romy: romyaboudarham@gmail.com
 
 ## Section 0 - Before the Workshop
-#### 0.1 Install Arduino Software
+### 0.1 Install Arduino Software
 Arduino software (IDE) runs on Windows, Mac OSX, and Linux. Please download and install the (free) [Arduino software here](http://arduino.cc/en/Main/Software).  <!-- We prefer to use an older version of the Arduino IDE: Version 1.8.19. Feel free to download the newer version as well and run them both for comparison. -->
 Please bring your laptop, with the software installed, to the workshop. **Laptops with the Arduino IDE installed will be provided for those without one**
 
 Additional instructions [on M5Stack's Arduino instructions here](https://docs.m5stack.com/en/arduino/arduino_ide) and [Adafruit's Arduino lessons here](https://learn.adafruit.com/ladyadas-learn-arduino-lesson-number-0/download-software)
 
-#### 0.2 Install M5StickC Plus2 Board Management to Arduino IDE
+### 0.2 Install M5StickC Plus2 Board Management to Arduino IDE
 The Board Manager URL is a link that tells the Arduino software where to find the information it needs to work with your M5StickC Plus2 device.
 
 **0.2.1** Open Arduino Software (IDE) &nbsp;&nbsp;&nbsp;&nbsp;
@@ -31,6 +31,13 @@ The Board Manager URL is a link that tells the Arduino software where to find th
    
 ![Alt text](https://github.com/romyaboudarham/M5StickCPlus2-Workshop/blob/main/media/install-library-tutorial.png)
 
+### 0.3 Install M5StickCPlus2 Library to Arduino IDE
+
+**0.3.1** In left sidebar, click "Library Manager" icon &nbsp;&nbsp;&nbsp;&nbsp;
+   - Search for "M5StickCPlus2" and **Install**
+<img src="https://github.com/romyaboudarham/M5StickCPlus2-Workshop/blob/main/media/0.3.1a-open_library_manager.png" style="width: 800px; height: auto;">
+   - You can also access the Library Manager like this:
+<img src="https://github.com/romyaboudarham/M5StickCPlus2-Workshop/blob/main/media/0.3.1b-alt_open_library_manager.png" style="width: 700px; height: auto;">
 
 ## Section 1 - At the Workshop
  - Please interrupt any time with questions.
