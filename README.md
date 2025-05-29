@@ -33,7 +33,7 @@ The Board Manager URL is a link that tells the Arduino software where to find th
 **0.2.3** In left sidebar, click "Boards Manager" icon &nbsp;&nbsp;&nbsp;&nbsp;
    - Search for "M5Stack" and **Install**
    
-<img src="https://github.com/romyaboudarham/M5StickCPlus2-Workshop/blob/main/media/install-library-tutorial.png" style="width: 700px; height: auto;">
+<img src="https://github.com/romyaboudarham/M5StickCPlus2-Workshop/blob/main/media/install-library-tutorial.png" style="width: 600px; height: auto;">
 
 ### 0.3 Install M5StickCPlus2 Library to Arduino IDE
 
@@ -152,21 +152,61 @@ Screens use a coordinate system where (0,0) starts at the top-left corner. The x
 
 <img src="https://github.com/romyaboudarham/M5StickCPlus2-Workshop/blob/main/media/axis.png" style="width: 550px; height: auto;"> 
 
-**2.1.1** Within the **"loop()"** function, add this line. Compile & Upload. (Right arrow in upper left) &nbsp;&nbsp;&nbsp;&nbsp;
+**2.1.1** Copy the code below and paste it into a new, empty Arduino sketch _OR_ download and open this example sketch: [MakeShapes.ino](/examples/01_HelloWorld/HelloWorld/MakeShapes.ino) &nbsp;&nbsp;&nbsp;&nbsp; 
+Compile & Upload. (Right arrow in upper left) 
+
 ```cpp
-StickCP2.Display.fillRect(0, 0, 100, 50, CYAN); // x (top-left), y (top-left), width, height, color
+#include <M5StickCPlus2.h> // this 'include' line includes the M5StickCPlus2 library
+                           // this allows us to use functions written for this specific device
+
+// and "int" is an "integer" which is a WHOLE number (not a fraction) i.e. 1, 6, 17, 394
+int screenWidth = 0;  // this variable is used to set the screen width
+int screenHeight = 0; // this variable is used to set the screen height
+
+// A "sprite" is an invisible drawing layer we can use to prepare each frame
+// before showing it on the screen. This helps prevent flickering.
+LGFX_Sprite* sprite;
+
+void setup() {
+  // initialize Serial Monitor to use baud rate 115200
+  Serial.begin(115200);
+  // initiatlize the device using the M5StickCPlus2 library
+  auto cfg = M5.config();
+  StickCP2.begin(cfg);
+
+  StickCP2.Display.setRotation(1); // this function sets the rotation of the display
+  								           // 0: portrait, 1: landscape, 2: portrait-flipped, 3: landscape-flipped
+  screenWidth = StickCP2.Display.width(); // 240
+  screenHeight = StickCP2.Display.height(); // 135
+
+  sprite = new LGFX_Sprite(&StickCP2.Display); // Create a new sprite (invisible drawing layer) This lets us draw things off-screen first --> reduces flicker
+  sprite->setColorDepth(16); // Set the color depth for the sprite (16-bit color is common and looks good)
+  sprite->createSprite(screenWidth, screenHeight); // Set the sprite size to cover the full screen
+}
+
+void loop() {
+  sprite->fillScreen(BLACK); // Clear the sprite by filling it with black
+
+  // CUSTOMIZE BEGIN
+  sprite->fillRect(0, 0, 100, 50, CYAN); // Draw rectangle: x (top-left), y (top-left), width, height, color
+  // CUSTOMIZE END
+
+  sprite->pushSprite(0, 0); // Push the finished drawing from the sprite onto the actual screen
+}
 ```
+
 &ensp; **YOUR TURN:** Change the x, y, width, height, and color values  
 
-**2.1.2** Now add these lines. Compile & Upload. &nbsp;&nbsp;&nbsp;&nbsp;
+**2.1.2** Add these lines within "CUSTOMIZE BEGIN & END" comments if you don't have them already. Compile & Upload. &nbsp;&nbsp;&nbsp;&nbsp;
 ```cpp
 // shape options: https://github.com/lovyan03/LovyanGFX/blob/5438181440c71cf30bbdc347b0b1597ae3ebf77d/src/lgfx/v1/LGFXBase.hpp#L192
-StickCP2.Display.fillCircle(180, 50, 30, VIOLET); // x (center), y (center), radius, color
-StickCP2.Display.fillEllipse(70, 75, 50, 30, ORANGE); // x (center), y (center), radius-x, radius-y, color
-StickCP2.Display.fillTriangle(180, 135, 200, 100, 240, 135, YELLOW); // x0, y0, x1, y1, x2, y2, color
+sprite->fillCircle(180, 50, 30, VIOLET); // x (center), y (center), radius, color
+sprite->fillEllipse(70, 75, 50, 30, ORANGE); // x (center), y (center), radius-x, radius-y, color
+sprite->fillTriangle(180, 135, 200, 100, 240, 135, YELLOW); // x0, y0, x1, y1, x2, y2, color
 ```
 
 &ensp; **YOUR TURN:** Change the values of the shapes and make some art!
+
 ### 2.2 Moving the Shapes
 **2.2.1** VARIABLES! Make the following additions and changes in your code. &nbsp;&nbsp;&nbsp;&nbsp;
 - The 2 lines above loop() create **variables** (rectX, rectY) that hold **integers** (int) that represent the x and y coordinate of your rectangle. 1. If you have multiple rectangles, you will want multiple variables with distinct names. For example, rect1_X, rect2_X, etc.
