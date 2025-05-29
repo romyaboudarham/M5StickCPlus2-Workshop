@@ -113,9 +113,13 @@ void loop() {
   /*** CUSTOMIZE END ***/
 }
 ```
-**1.2.2** "Compile" & "Upload" the code to the device by clicking the Arrow in the top left corner &nbsp;&nbsp;&nbsp;&nbsp;
-   - Compile = translate this code (C++) into machine-readable language. This step also checks for correct syntax in your code.
-   - Upload = sending the code to the device, where the code is now stored on the device, so when you disconnect it form your computer the code still lives on the device.
+**1.2.2a** "Compile" the code to the device by clicking the **checkmark** in the top left corner &nbsp;&nbsp;&nbsp;&nbsp;
+   - Compile = translate this code (C++) into machine-readable language
+   - Use compile when manipulating code to make sure you haven't caused errors as you're working
+
+**1.2.2b** "Upload" the code to the device by clicking the **right arrow** in the top left corner &nbsp;&nbsp;&nbsp;&nbsp;
+- Upload = sending the code to the device, where the code is now stored on the device, so when you disconnect it form your computer the code still lives on the device.
+- use upload when you are ready to upload. It will automagically compile first (becasue uploading code with syntax errors would be silly)!
 
 **1.2.3** Open up the "Serial Monitor" by clicking on the magnifying glass near the top right corner (the monitor will either open in a new window or at the bottom of your screen depending on your computer). &nbsp;&nbsp;&nbsp;&nbsp;
    - This is where we will see any text within "Serial.println(...)".
