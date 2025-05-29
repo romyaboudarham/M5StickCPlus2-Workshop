@@ -35,8 +35,10 @@ The Board Manager URL is a link that tells the Arduino software where to find th
 
 **0.3.1** In left sidebar, click "Library Manager" icon &nbsp;&nbsp;&nbsp;&nbsp;
    - Search for "M5StickCPlus2" and **Install**
+   - You will then be asked about installing dependencies. **Click "INSTALL ALL"**
 <img src="https://github.com/romyaboudarham/M5StickCPlus2-Workshop/blob/main/media/0.3.1a-open_library_manager.png" style="width: 800px; height: auto;">
-   - You can also access the Library Manager like this:
+
+   - ALTERNATE: You can also access the Library Manager like this:
 <img src="https://github.com/romyaboudarham/M5StickCPlus2-Workshop/blob/main/media/0.3.1b-alt_open_library_manager.png" style="width: 700px; height: auto;">
 
 ## Section 1 - WELCOME to the WORKSHOP!!
