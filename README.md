@@ -39,7 +39,7 @@ The Board Manager URL is a link that tells the Arduino software where to find th
    - You can also access the Library Manager like this:
 <img src="https://github.com/romyaboudarham/M5StickCPlus2-Workshop/blob/main/media/0.3.1b-alt_open_library_manager.png" style="width: 700px; height: auto;">
 
-## Section 1 - At the Workshop
+## Section 1 - WELCOME to the WORKSHOP!!
  - Please interrupt any time with questions.
 
 ### 1.1 First steps: Verifying correct installation
