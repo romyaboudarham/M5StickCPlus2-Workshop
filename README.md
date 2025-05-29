@@ -187,9 +187,9 @@ void setup() {
 void loop() {
   sprite->fillScreen(BLACK); // Clear the sprite by filling it with black
 
-  // CUSTOMIZE BEGIN
+  /*** CUSTOMIZE - BEGIN ***/
   sprite->fillRect(0, 0, 100, 50, CYAN); // Draw rectangle: x (top-left), y (top-left), width, height, color
-  // CUSTOMIZE END
+  /*** CUSTOMIZE - END ***/
 
   sprite->pushSprite(0, 0); // Push the finished drawing from the sprite onto the actual screen
 }
@@ -216,9 +216,8 @@ int rectX = 0; // <-- ADD
 int rectY = 0; // <-- ADD 
 
 void loop() {
-   StickCP2.update();
-
-   StickCP2.Display.fillRect(rectX, rectY, 100, 50, CYAN); // <-- CHANGE the X & Y values
+  ...
+   sprite->fillRect(rectX, rectY, 100, 50, CYAN); // <-- REPLACE the X & Y number values to rectX & rectY
   ...
 ```
 Compile to check for errors (checkmark in upper left)
