@@ -152,8 +152,8 @@ Screens use a coordinate system where (0,0) starts at the top-left corner. The x
 
 <img src="https://github.com/romyaboudarham/M5StickCPlus2-Workshop/blob/main/media/axis.png" style="width: 550px; height: auto;"> 
 
-**2.1.1** Copy the code below and paste it into a new, empty Arduino sketch _OR_ download and open this example sketch: [MakeShapes.ino](/examples/01_HelloWorld/HelloWorld/MakeShapes.ino) &nbsp;&nbsp;&nbsp;&nbsp; 
-Compile & Upload. (Right arrow in upper left) 
+**2.1.1** Copy the code below and paste it into a new, empty Arduino sketch _OR_ download and open this example sketch: [MakeShapes.ino](/examples/02_Output_MovingShapes/Output_MakeShapes/Output_MakeShapes.ino) &nbsp;&nbsp;&nbsp;&nbsp; 
+- Compile & Upload. (Right arrow in upper left) 
 
 ```cpp
 #include <M5StickCPlus2.h> // this 'include' line includes the M5StickCPlus2 library
@@ -195,9 +195,9 @@ void loop() {
 }
 ```
 
-&ensp; **YOUR TURN:** Change the x, y, width, height, and color values  
+&ensp; **YOUR TURN:** Within CUSTOMIZE BEGIN & END, Change the x, y, width, height, and color values  
 
-**2.1.2** Add these lines within "CUSTOMIZE BEGIN & END" comments if you don't have them already. Compile & Upload. &nbsp;&nbsp;&nbsp;&nbsp;
+**2.1.2** Within CUSTOMIZE, Add these lines if you don't have them already. Compile & Upload. &nbsp;&nbsp;&nbsp;&nbsp;
 ```cpp
 // shape options: https://github.com/lovyan03/LovyanGFX/blob/5438181440c71cf30bbdc347b0b1597ae3ebf77d/src/lgfx/v1/LGFXBase.hpp#L192
 sprite->fillCircle(180, 50, 30, VIOLET); // x (center), y (center), radius, color
