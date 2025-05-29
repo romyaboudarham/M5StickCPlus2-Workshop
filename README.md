@@ -95,6 +95,10 @@ void setup() {
   								           // 0: portrait, 1: landscape, 2: portrait-flipped, 3: landscape-flipped
   screenWidth = StickCP2.Display.width(); // 240
   screenHeight = StickCP2.Display.height(); // 135
+}
+
+void loop() {
+  StickCP2.update();
 
   /*** CUSTOMIZE BEGIN ***/
   // font options: https://github.com/lovyan03/LovyanGFX/blob/55a0f66d9278faa596c8d51a8e8a3e537dd8f44f/src/lgfx/v1/lgfx_fonts.hpp#L329
@@ -104,14 +108,9 @@ void setup() {
   StickCP2.Display.setTextSize(1); // try 2!
   // text reference point options: https://github.com/lovyan03/LovyanGFX/blob/55a0f66d9278faa596c8d51a8e8a3e537dd8f44f/src/lgfx/v1/misc/enum.hpp#L135
   StickCP2.Display.setTextDatum(top_left);
-  StickCP2.Display.drawString("Hello World!", 0, 0);
+  StickCP2.Display.drawString("Hello World!", 0, 0); // prints to the device screen
+  Serial.println("Hello World!"); // prints to the serial monitor
   /*** CUSTOMIZE END ***/
-}
-
-void loop() {
-  StickCP2.update();
-
-  Serial.println("Printing in Serial Monitor!");
 }
 ```
 **1.2.2** "Compile" & "Upload" the code to the device by clicking the Arrow in the top left corner &nbsp;&nbsp;&nbsp;&nbsp;
