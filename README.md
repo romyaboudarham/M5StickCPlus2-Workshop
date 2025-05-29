@@ -63,11 +63,12 @@ The Board Manager URL is like a link that tells the Arduino software where to fi
 1. Copy the code below and paste it into a new, empty Arduino sketch _OR_ download and open this example sketch: [HelloWorld.ino](/examples/01_HelloWorld/HelloWorld/HelloWorld.ino)
 
 ```cpp
-#include <M5StickCPlus2.h> // library
+#include <M5StickCPlus2.h> // this 'include' line includes the M5StickCPlus2 library
+                           // this allows us to use functions written for this specific device
 
 // and "int" is an "integer" which is a WHOLE number (not a fraction) i.e. 1, 6, 17, 394
-int screenWidth = 0;
-int screenHeight = 0;
+int screenWidth = 0;  // this variable is used to set the screen width
+int screenHeight = 0; // this variable is used to set the screen height
 
 void setup() {
   // initialize Serial Monitor to use baud rate 115200
@@ -76,8 +77,8 @@ void setup() {
   auto cfg = M5.config();
   StickCP2.begin(cfg);
 
-  // 0: portrait, 1: landscape, 2: portrait-flipped, 3: landscape-flipped
-  StickCP2.Display.setRotation(1);
+  StickCP2.Display.setRotation(1); // this function sets the rotation of the display
+  								           // 0: portrait, 1: landscape, 2: portrait-flipped, 3: landscape-flipped
   screenWidth = StickCP2.Display.width(); // 240
   screenHeight = StickCP2.Display.height(); // 135
 
