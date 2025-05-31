@@ -113,13 +113,13 @@ void loop() {
   /*** CUSTOMIZE END ***/
 }
 ```
-**1.2.2a** "Compile" the code to the device by clicking the **checkmark** in the top left corner &nbsp;&nbsp;&nbsp;&nbsp;
-   - Compile = translate this code (C++) into machine-readable language
-   - Use compile when manipulating code to make sure you haven't caused errors as you're working
+**1.2.2a** "Verify" (Build) the code to the device by clicking the **checkmark** in the top left corner &nbsp;&nbsp;&nbsp;&nbsp;
+   - Verify = translate this code (C++) into machine-readable language (preprocessing → compiles → link)
+   - Use verify when manipulating code to make sure you haven't caused errors as you're working
 
 **1.2.2b** "Upload" the code to the device by clicking the **right arrow** in the top left corner &nbsp;&nbsp;&nbsp;&nbsp;
 - Upload = sending the code to the device, where the code is now stored on the device, so when you disconnect it form your computer the code still lives on the device.
-- use upload when you are ready to upload. It will automagically compile first (becasue uploading code with syntax errors would be silly)!
+- use upload when you are ready to upload. It will automagically verifies first (because uploading code with syntax errors would be silly)!
 
 **1.2.3** Open up the "Serial Monitor" by clicking on the magnifying glass near the top right corner (the monitor will either open in a new window or at the bottom of your screen depending on your computer). &nbsp;&nbsp;&nbsp;&nbsp;
    - This is where we will see any text within "Serial.println(...)".
@@ -153,7 +153,7 @@ Screens use a coordinate system where (0,0) starts at the top-left corner. The x
 <img src="https://github.com/romyaboudarham/M5StickCPlus2-Workshop/blob/main/media/axis.png" style="width: 550px; height: auto;"> 
 
 **2.1.1** Copy the code below and paste it into a new, empty Arduino sketch _OR_ download and open this example sketch: [MakeShapes.ino](/examples/02_Output_MovingShapes/Output_MakeShapes/Output_MakeShapes.ino) &nbsp;&nbsp;&nbsp;&nbsp; 
-- Compile & Upload. (Right arrow in upper left) 
+- Verify & Upload. (Right arrow in upper left) 
 
 ```cpp
 #include <M5StickCPlus2.h> // this 'include' line includes the M5StickCPlus2 library
@@ -197,7 +197,7 @@ void loop() {
 
 &ensp; **YOUR TURN:** Within CUSTOMIZE BEGIN & END, Change the x, y, width, height, and color values  
 
-**2.1.2** Within CUSTOMIZE, Add these lines if you don't have them already. Compile & Upload. &nbsp;&nbsp;&nbsp;&nbsp;
+**2.1.2** Within CUSTOMIZE, Add these lines if you don't have them already. Verify & Upload. &nbsp;&nbsp;&nbsp;&nbsp;
 ```cpp
 // shape options: https://github.com/lovyan03/LovyanGFX/blob/5438181440c71cf30bbdc347b0b1597ae3ebf77d/src/lgfx/v1/LGFXBase.hpp#L192
 sprite->fillCircle(180, 50, 30, VIOLET); // x (center), y (center), radius, color
@@ -220,7 +220,7 @@ void loop() {
    sprite->fillRect(rectX, rectY, 100, 50, CYAN); // <-- REPLACE the X & Y number values to rectX & rectY
   ...
 ```
-Compile to check for errors (checkmark in upper left)
+Verify to check for errors (checkmark in upper left)
 
 **2.2.2** IF STATEMENTS! &nbsp;&nbsp;&nbsp;&nbsp;
 - **QUESTION** Since we know that loop() is endlessing looping and drawing the rectangle at position (0,0), what do we need to do to the rectangle's X value to move it across the screen to the right?
