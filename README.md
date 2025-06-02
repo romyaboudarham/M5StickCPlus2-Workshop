@@ -156,7 +156,7 @@ Screens use a coordinate system where (0,0) starts at the top-left corner. The x
 <img src="https://github.com/romyaboudarham/M5StickCPlus2-Workshop/blob/main/media/axis.png" style="width: 550px; height: auto;"> 
 
 **2.1.1** Copy the code below and paste it into a new, empty Arduino sketch _OR_ download and open this example sketch: [MakeShapes.ino](/examples/02_Output_MovingShapes/Output_MakeShapes/Output_MakeShapes.ino) &nbsp;&nbsp;&nbsp;&nbsp; 
-- Compile & Upload. (Right arrow in upper left) 
+- Verify & Upload. (Right arrow in upper left) 
 
 ```cpp
 #include <M5StickCPlus2.h> // this 'include' line includes the M5StickCPlus2 library
@@ -200,7 +200,7 @@ void loop() {
 
 &ensp; **YOUR TURN:** Within CUSTOMIZE BEGIN & END, Change the x, y, width, height, and color values  
 
-**2.1.2** Within CUSTOMIZE, Add these lines if you don't have them already. Compile & Upload. &nbsp;&nbsp;&nbsp;&nbsp;
+**2.1.2** Within CUSTOMIZE, Add these lines if you don't have them already. Verify & Upload. &nbsp;&nbsp;&nbsp;&nbsp;
 ```cpp
 // shape options: https://github.com/lovyan03/LovyanGFX/blob/5438181440c71cf30bbdc347b0b1597ae3ebf77d/src/lgfx/v1/LGFXBase.hpp#L192
 sprite->fillCircle(180, 50, 30, VIOLET); // x (center), y (center), radius, color
@@ -223,7 +223,7 @@ void loop() {
    sprite->fillRect(rectX, rectY, 100, 50, CYAN); // <-- REPLACE the X & Y number values to rectX & rectY
   ...
 ```
-Compile to check for errors (checkmark in upper left)
+Verify to check for errors (checkmark in upper left)
 
 **2.2.2** IF STATEMENTS! &nbsp;&nbsp;&nbsp;&nbsp;
 
@@ -247,7 +247,7 @@ Final code for moving all shapes here: [Output_MovingShapes.ino](examples/02_Out
 <img src="https://github.com/romyaboudarham/M5StickCPlus2-Workshop/blob/main/media/3.1.1-m5stick_buttons.png" style="width: 500px; height: auto;">
 
 **3.1.1** Copy the code below and paste it into a new, empty Arduino sketch &nbsp;&nbsp;&nbsp;&nbsp; 
-- Compile & Upload. (Right arrow in upper left) 
+- Verify & Upload. (Right arrow in upper left) 
 ```
 #include <M5StickCPlus2.h> // this 'include' line includes the M5StickCPlus2 library
                            // this allows us to use functions written for this specific device
@@ -316,7 +316,7 @@ void loop() {
 **3.1.1** Move the shape on button press &nbsp;&nbsp;&nbsp;&nbsp;
 - **QUESTION** What do we need to do to move the rectangle to the right 5 pixels when we press Button A and left when we press Button B?
 
-Final code for moving rectangle with Buttons presses: [Output_MovingRectangle.ino](examples/02_Output_MovingShapes/Output_MovingRectangle/Output_MovingRectangle.ino)
+Final code for moving rectangle with Buttons presses: [Output_MovingRectangle.ino](examples/03_Input_BtnPress/Input_MoveShape_BtnPress/Input_MoveShape_BtnPress/Input_MoveShape_BtnPress.ino)
 
 **3.1.2** Brick Breaker Game &nbsp;&nbsp;&nbsp;&nbsp;
-- Copy and paste the following code in a new Arduino sketch. Verify & Upload. [Click here for code (Input_BreakBreaker.ino)](examples/03_Output_MovingShapes/Output_MovingRectangle/Output_MovingRectangle.ino)
+- Copy and paste the following code in a new Arduino sketch. Verify & Upload. [Click here for code (Input_BreakBreaker.ino)](examples/03_Input_BtnPress/Input_BrickBreaker/Input_BrickBreaker.ino)
