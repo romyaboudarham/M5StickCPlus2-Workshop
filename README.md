@@ -48,6 +48,9 @@ The Board Manager URL is a link that tells the Arduino software where to find th
 ## Section 1 - WELCOME to the WORKSHOP!!
  - Please interrupt any time with questions.
 
+### Introducing the M5StickPlus2:
+<img src="https://github.com/romyaboudarham/M5StickCPlus2-Workshop/blob/main/media/m5stick_buttons.png" style="width: 500px; height: auto;">
+
 ### 1.1 First steps: Verifying correct installation
 
 **1.1.1** Connect M5Stick via USB cable &nbsp;&nbsp;&nbsp;&nbsp;
@@ -113,13 +116,13 @@ void loop() {
   /*** CUSTOMIZE END ***/
 }
 ```
-**1.2.2a** "Verify" (Build) the code to the device by clicking the **checkmark** in the top left corner &nbsp;&nbsp;&nbsp;&nbsp;
-   - Verify = translate this code (C++) into machine-readable language (preprocessing → compiles → link)
-   - Use verify when manipulating code to make sure you haven't caused errors as you're working
+**1.2.2a** "Compile" the code to the device by clicking the **checkmark** in the top left corner &nbsp;&nbsp;&nbsp;&nbsp;
+   - Compile = translate this code (C++) into machine-readable language
+   - Use compile when manipulating code to make sure you haven't caused errors as you're working
 
 **1.2.2b** "Upload" the code to the device by clicking the **right arrow** in the top left corner &nbsp;&nbsp;&nbsp;&nbsp;
 - Upload = sending the code to the device, where the code is now stored on the device, so when you disconnect it form your computer the code still lives on the device.
-- use upload when you are ready to upload. It will automagically verifies first (because uploading code with syntax errors would be silly)!
+- use upload when you are ready to upload. It will automagically compile first (becasue uploading code with syntax errors would be silly)!
 
 **1.2.3** Open up the "Serial Monitor" by clicking on the magnifying glass near the top right corner (the monitor will either open in a new window or at the bottom of your screen depending on your computer). &nbsp;&nbsp;&nbsp;&nbsp;
    - This is where we will see any text within "Serial.println(...)".
@@ -153,7 +156,7 @@ Screens use a coordinate system where (0,0) starts at the top-left corner. The x
 <img src="https://github.com/romyaboudarham/M5StickCPlus2-Workshop/blob/main/media/axis.png" style="width: 550px; height: auto;"> 
 
 **2.1.1** Copy the code below and paste it into a new, empty Arduino sketch _OR_ download and open this example sketch: [MakeShapes.ino](/examples/02_Output_MovingShapes/Output_MakeShapes/Output_MakeShapes.ino) &nbsp;&nbsp;&nbsp;&nbsp; 
-- Verify & Upload. (Right arrow in upper left) 
+- Compile & Upload. (Right arrow in upper left) 
 
 ```cpp
 #include <M5StickCPlus2.h> // this 'include' line includes the M5StickCPlus2 library
@@ -197,7 +200,7 @@ void loop() {
 
 &ensp; **YOUR TURN:** Within CUSTOMIZE BEGIN & END, Change the x, y, width, height, and color values  
 
-**2.1.2** Within CUSTOMIZE, Add these lines if you don't have them already. Verify & Upload. &nbsp;&nbsp;&nbsp;&nbsp;
+**2.1.2** Within CUSTOMIZE, Add these lines if you don't have them already. Compile & Upload. &nbsp;&nbsp;&nbsp;&nbsp;
 ```cpp
 // shape options: https://github.com/lovyan03/LovyanGFX/blob/5438181440c71cf30bbdc347b0b1597ae3ebf77d/src/lgfx/v1/LGFXBase.hpp#L192
 sprite->fillCircle(180, 50, 30, VIOLET); // x (center), y (center), radius, color
@@ -220,9 +223,16 @@ void loop() {
    sprite->fillRect(rectX, rectY, 100, 50, CYAN); // <-- REPLACE the X & Y number values to rectX & rectY
   ...
 ```
-Verify to check for errors (checkmark in upper left)
+Compile to check for errors (checkmark in upper left)
 
 **2.2.2** IF STATEMENTS! &nbsp;&nbsp;&nbsp;&nbsp;
+
+"If it is raining, I will bring an umbrella."
+
+An 'if' statement is like a question. If the answer is YES (true), you do something. If the answer is NO (false), you skip it or do something else.
+
+<img src="https://github.com/romyaboudarham/M5StickCPlus2-Workshop/blob/main/media/2-IF_statement.png" style="width: 700px; height: auto;">
+
 - **QUESTION** Since we know that loop() is endlessing looping and drawing the rectangle at position (0,0), what do we need to do to the rectangle's X value to move it across the screen to the right?
 - **QUESTION** The rectangle is going to move infinitely across and off the screen, how do we account for boundaries of the screen and have the shape move back and forth?  
 
@@ -233,3 +243,79 @@ Final code for moving rectangle back and forth here: [Output_MovingRectangle.ino
 Final code for moving all shapes here: [Output_MovingShapes.ino](examples/02_Output_MovingShapes/Output_MovingAllShapes/Output_MovingAllShapes.ino)
 
 ## Section 3 - Let's move a shape when we press a button!
+### 3.1 Device Button Names
+<img src="https://github.com/romyaboudarham/M5StickCPlus2-Workshop/blob/main/media/3.1.1-m5stick_buttons.png" style="width: 500px; height: auto;">
+
+**3.1.1** Copy the code below and paste it into a new, empty Arduino sketch &nbsp;&nbsp;&nbsp;&nbsp; 
+- Compile & Upload. (Right arrow in upper left) 
+```
+#include <M5StickCPlus2.h> // this 'include' line includes the M5StickCPlus2 library
+                           // this allows us to use functions written for this specific device
+
+// and "int" is an "integer" which is a WHOLE number (not a fraction) i.e. 1, 6, 17, 394
+int screenWidth = 0;  // this variable is used to set the screen width
+int screenHeight = 0; // this variable is used to set the screen height
+
+// A "sprite" is an invisible drawing layer we can use to prepare each frame
+// before showing it on the screen. This helps prevent flickering.
+LGFX_Sprite* sprite;
+
+void setup() {
+  // initialize Serial Monitor to use baud rate 115200
+  Serial.begin(115200);
+  // initiatlize the device using the M5StickCPlus2 library
+  auto cfg = M5.config();
+  StickCP2.begin(cfg);
+
+  StickCP2.Display.setRotation(1); // this function sets the rotation of the display
+  								           // 0: portrait, 1: landscape, 2: portrait-flipped, 3: landscape-flipped
+  screenWidth = StickCP2.Display.width(); // 240
+  screenHeight = StickCP2.Display.height(); // 135
+
+  // set up sprite
+  sprite = new LGFX_Sprite(&StickCP2.Display); // Create a new sprite (invisible drawing layer) This lets us draw things off-screen first --> reduces flicker
+  sprite->setColorDepth(16); // Set the color depth for the sprite (16-bit color is common and looks good)
+  sprite->createSprite(screenWidth, screenHeight); // Set the sprite size to cover the full screen
+  
+  sprite->setTextColor(WHITE);
+  sprite->setTextSize(3);
+  sprite->fillScreen(BLACK);
+  sprite->drawString("Press Btn A", 5, 5); 
+  sprite->drawString("or Btn B", 5, 30); 
+
+  sprite->pushSprite(0, 0); // Push the finished drawing from the sprite onto the actual screen
+}
+
+int rectWidth = 40;
+int rectHeight = 8;
+int rectX = 100;
+int rectY = 120;
+int rectSpeed = 5; // # of pixels to move the shape 5 pixels;
+
+void loop() {
+  StickCP2.update(); // for inputs (i.e. Button)
+
+   /*** CUSTOMIZE BEGIN ***/
+  if (StickCP2.BtnA.isPressed()) { // Button A pressed
+    StickCP2.Speaker.tone(2000, 30); // frequency, duration of tone
+    sprite->fillScreen(NAVY);
+    sprite->drawString("Btn A Pressed", 5, 5);
+  }
+  if (StickCP2.BtnB.isPressed()) { // Button B pressed
+    StickCP2.Speaker.tone(1200, 30); // frequency, duration of tone
+    sprite->fillScreen(PURPLE);
+    sprite->drawString("Btn B Pressed", 5, 5);
+  }
+   /*** CUSTOMIZE END ***/
+
+  sprite->fillRect(rectX, rectY, rectWidth, rectHeight, ORANGE); // Draw rectangle: x (top-left), y (top-left), width, height, color
+
+  sprite->pushSprite(0, 0); // Push the finished drawing from the sprite onto the actual screen
+}
+```
+**3.1.1** Move the shape on button press &nbsp;&nbsp;&nbsp;&nbsp;
+- **QUESTION** What do we need to do to move the rectangle to the right 5 pixels when we press Button A and left when we press Button B?
+Final code for moving rectangle with Buttons presses: [Output_MovingRectangle.ino](examples/02_Output_MovingShapes/Output_MovingRectangle/Output_MovingRectangle.ino)
+**3.1.2** Brick Breaker Game &nbsp;&nbsp;&nbsp;&nbsp;
+- Click on this code link to open in a new tab: [Input_BreakBreaker.ino](examples/03_Output_MovingShapes/Output_MovingRectangle/Output_MovingRectangle.ino)
+- Copy and paste code in a new Arduino sketch. Verify & Upload.
