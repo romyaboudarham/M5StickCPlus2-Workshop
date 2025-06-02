@@ -319,4 +319,4 @@ void loop() {
 Final code for moving rectangle with Buttons presses: [Output_MovingRectangle.ino](examples/03_Input_BtnPress/Input_MoveShape_BtnPress/Input_MoveShape_BtnPress/Input_MoveShape_BtnPress.ino)
 
 **3.1.2** Brick Breaker Game &nbsp;&nbsp;&nbsp;&nbsp;
-- Copy and paste the following code in a new Arduino sketch. Verify & Upload. [Click here for code (Input_BreakBreaker.ino)](examples/03_Input_BtnPress/Input_BrickBreaker/Input_BrickBreaker.ino)
+- Copy and paste the following code in a new Arduino sketch. Verify & Upload. [Input_BreakBreaker.ino](examples/03_Input_BtnPress/Input_BrickBreaker/Input_BrickBreaker.ino)
