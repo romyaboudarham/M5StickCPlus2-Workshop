@@ -315,7 +315,8 @@ void loop() {
 ```
 **3.1.1** Move the shape on button press &nbsp;&nbsp;&nbsp;&nbsp;
 - **QUESTION** What do we need to do to move the rectangle to the right 5 pixels when we press Button A and left when we press Button B?
+
 Final code for moving rectangle with Buttons presses: [Output_MovingRectangle.ino](examples/02_Output_MovingShapes/Output_MovingRectangle/Output_MovingRectangle.ino)
+
 **3.1.2** Brick Breaker Game &nbsp;&nbsp;&nbsp;&nbsp;
-- Click on this code link to open in a new tab: [Input_BreakBreaker.ino](examples/03_Output_MovingShapes/Output_MovingRectangle/Output_MovingRectangle.ino)
-- Copy and paste code in a new Arduino sketch. Verify & Upload.
+- Copy and paste the following code in a new Arduino sketch. Verify & Upload. [Click here for code (Input_BreakBreaker.ino)](examples/03_Output_MovingShapes/Output_MovingRectangle/Output_MovingRectangle.ino)
