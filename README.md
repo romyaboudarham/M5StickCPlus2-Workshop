@@ -320,3 +320,14 @@ Final code for moving rectangle with Buttons presses: [Output_MovingRectangle.in
 
 **3.1.2** Brick Breaker Game &nbsp;&nbsp;&nbsp;&nbsp;
 - Copy and paste the following code in a new Arduino sketch. Verify & Upload. [Input_BreakBreaker.ino](examples/03_Input_BtnPress/Input_BrickBreaker/Input_BrickBreaker.ino)
+
+## Section 4 Connect to the WIFI - Group Activity!!
+### 4.1 Download an example folder from Github (04_Magic8Ball)
+**4.1.1** Follow this [tutorial on how to download a folder from Github and launch the program](https://github.com/romyaboudarham/M5StickCPlus2-Workshop/blob/main/examples/README.md#downloading-a-folder-of-files)
+
+**4.1.2** Verify & Upload
+- **OBSERVE** After shaking, the screen should say "No Tasks!"
+  
+### 4.2 LETS ADD TASKS!
+**4.2.1** Add tasks via this google form [https://forms.gle/N2e3ArNAN42STrs97](https://forms.gle/N2e3ArNAN42STrs97)
+- Click Button B to refresh (top left)
