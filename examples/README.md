@@ -16,5 +16,5 @@
 
 <img src="https://github.com/romyaboudarham/M5StickCPlus2-Workshop/blob/main/media/0.2.2c-paste_url.png" style="width: 700px; height: auto;">
 
-### Case 2: Downloading a FOLDER of files
+### Downloading a FOLDER of files
 1. download-directory.github.io
