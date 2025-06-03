@@ -117,3 +117,41 @@ void drawMagicTriangle(uint32_t outlineColor, uint32_t fillColor) {
     outlineColor
   );
 }
+
+
+void drawWrappedText(String text, int xCenter, int yStart, int maxWidth) {
+  StickCP2.Display.setTextDatum(MC_DATUM);  // Middle center anchor
+
+  int lineHeight = 16 * 2; // Adjust if needed for your text size
+  int cursorY = yStart;
+
+  // Split text into words
+  std::vector<String> words;
+  int start = 0;
+  for (int i = 0; i <= text.length(); i++) {
+    if (i == text.length() || text[i] == ' ') {
+      words.push_back(text.substring(start, i));
+      start = i + 1;
+    }
+  }
+
+  String line = "";
+  for (int i = 0; i < words.size(); i++) {
+    String temp = line + (line.length() > 0 ? " " : "") + words[i];
+    int width = StickCP2.Display.textWidth(temp);
+
+    if (width > maxWidth && line.length() > 0) {
+      // Draw current line and start new one
+      StickCP2.Display.drawString(line, xCenter, cursorY);
+      cursorY += lineHeight;
+      line = words[i]; // Start with current word
+    } else {
+      line = temp;
+    }
+  }
+
+  // Draw last line
+  if (line.length() > 0) {
+    StickCP2.Display.drawString(line, xCenter, cursorY);
+  }
+}

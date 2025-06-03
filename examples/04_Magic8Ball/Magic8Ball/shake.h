@@ -11,5 +11,6 @@ bool detectShaking();
 void drawRectangles(LovyanGFX* gfx);
 void shakingEffect(uint32_t durationMs);
 void drawMagicTriangle(uint32_t outlineColor, uint32_t fillColor);
+void drawWrappedText(String text, int xCenter, int yStart, int maxWidth);
 
 #endif

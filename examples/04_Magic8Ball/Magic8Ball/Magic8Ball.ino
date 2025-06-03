@@ -4,10 +4,13 @@
 #include "shake.h"
 
 // Wifi
-const char* ssid      = "CCA";
-const char* password  = "";
+const char* ssid      = "CCA"; // REPLACE WITH YOUR WIFI NAME
+const char* password  = ""; // REPLACE WITH YOUR WIFI PASSWORD
 
 bool wasShaking = false;
+
+int screenWidth = 0;  // this variable is used to set the screen width
+int screenHeight = 0; // this variable is used to set the screen height
 
 void setup() {
   //  init StickCP2
@@ -21,22 +24,12 @@ void setup() {
   // initial data load
   fetchTasks(serverURL);
 
-  StickCP2.Display.clear();
+  screenWidth = StickCP2.Display.width();
+  screenHeight = StickCP2.Display.height();
 
-  /*** CUSTOMIZE BEGIN ***/
-  StickCP2.Display.setTextSize(2);
   StickCP2.Display.setRotation(1);
-  // color options: https://github.com/lovyan03/LovyanGFX/blob/55a0f66d9278faa596c8d51a8e8a3e537dd8f44f/src/lgfx/v1/misc/enum.hpp#L56
-  StickCP2.Display.setTextColor(GREEN);
-  // text placement options: https://github.com/lovyan03/LovyanGFX/blob/55a0f66d9278faa596c8d51a8e8a3e537dd8f44f/src/lgfx/v1/misc/enum.hpp#L135
-  StickCP2.Display.setTextDatum(baseline_center);
-  // font options: https://github.com/lovyan03/LovyanGFX/blob/55a0f66d9278faa596c8d51a8e8a3e537dd8f44f/src/lgfx/v1/lgfx_fonts.cpp#L1154
-  StickCP2.Display.setTextFont(&fonts::Orbitron_Light_24);
-  StickCP2.Display.setTextSize(1);
-  //StickCP2.Display.drawString("Shake me!", StickCP2.Display.width() / 2, StickCP2.Display.height() / 2);
-  StickCP2.Display.println("Button B: refresh");
-  StickCP2.Display.println("SHAKE ME");
-  /*** CUSTOMIZE END ***/
+  StickCP2.Display.setTextFont(&fonts::Orbitron_Light_24);  // Vector font — don't setTextSize()
+  loadStartUpScreen();
 }
 
 void loop() {
@@ -59,29 +52,33 @@ void loop() {
   // BtnB → manual refresh
   if (StickCP2.BtnB.wasPressed()) {
     StickCP2.Display.clear();
-    StickCP2.Display.setCursor(0, 30);
-    StickCP2.Display.println("Refreshing...");
+    StickCP2.Display.drawString("Refreshing", StickCP2.Display.width() / 2, 30);
     fetchTasks(serverURL);
-    StickCP2.Display.clear();
-    StickCP2.Display.println("Shake me!");
+    loadStartUpScreen();
   }
 }
 
 // displays task in the triangle
 void showTaskInTriangle() {
-  if (tasks.empty()) {
-    StickCP2.Display.drawString("No Tasks!", triCenterX, triCenterY, 2);
-    return;
-  }
-  /*** CUSTOMIZE BEGIN ***/
+    /*** CUSTOMIZE BEGIN ***/
   // color options: https://github.com/lovyan03/LovyanGFX/blob/55a0f66d9278faa596c8d51a8e8a3e537dd8f44f/src/lgfx/v1/misc/enum.hpp#L56
   // create custom RGB color: uint32_t myBlue = StickCP2.Display.color565(0, 0, 255); // Pure blue
   drawMagicTriangle(TFT_WHITE, TFT_BLUE); // 1st value: triangle outline color, 2nd value: triangle fill color 
   StickCP2.Display.setTextDatum(MC_DATUM);
   StickCP2.Display.setTextColor(TFT_WHITE, TFT_ORANGE);
-  StickCP2.Display.setTextSize(2);
+  StickCP2.Display.setTextSize(1);
   /*** CUSTOMIZE END ***/
-  
-  int i = random(tasks.size());
-  StickCP2.Display.drawString(tasks[i].c_str(), triCenterX, triCenterY, 2);
+
+  String msg = tasks.empty() ? "No Tasks!" : tasks[random(tasks.size())].c_str();
+  drawWrappedText(msg, StickCP2.Display.width() / 2, 30, StickCP2.Display.width() - 20);
+}
+
+void loadStartUpScreen() {
+  StickCP2.Display.clear();
+  StickCP2.Display.setTextDatum(MC_DATUM);
+  drawMagicTriangle(TFT_WHITE, TFT_BLUE);
+  StickCP2.Display.setTextColor(TFT_WHITE, TFT_ORANGE);
+
+  StickCP2.Display.drawString("Refresh w/ BtnB", StickCP2.Display.width() / 2, 30);
+  StickCP2.Display.drawString("SHAKE ME", StickCP2.Display.width() / 2, 70);
 }
