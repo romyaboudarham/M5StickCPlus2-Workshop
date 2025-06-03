@@ -88,8 +88,6 @@ int screenWidth = 0;  // this variable is used to set the screen width
 int screenHeight = 0; // this variable is used to set the screen height
 
 void setup() {
-  // initialize Serial Monitor to use baud rate 115200
-  Serial.begin(115200);
   // initiatlize the device using the M5StickCPlus2 library
   auto cfg = M5.config();
   StickCP2.begin(cfg);
@@ -98,6 +96,9 @@ void setup() {
   								           // 0: portrait, 1: landscape, 2: portrait-flipped, 3: landscape-flipped
   screenWidth = StickCP2.Display.width(); // 240
   screenHeight = StickCP2.Display.height(); // 135
+
+  // text reference point options: https://github.com/lovyan03/LovyanGFX/blob/55a0f66d9278faa596c8d51a8e8a3e537dd8f44f/src/lgfx/v1/misc/enum.hpp#L135
+  StickCP2.Display.setTextDatum(top_left);
 }
 
 void loop() {
@@ -109,10 +110,8 @@ void loop() {
   // color options: https://github.com/m5stack/M5GFX/blob/b1a0e54e79a1c50d1d0d628524bbde7275423b5f/src/M5GFX.h#L143
   StickCP2.Display.setTextColor(GREEN);
   StickCP2.Display.setTextSize(1); // try 2!
-  // text reference point options: https://github.com/lovyan03/LovyanGFX/blob/55a0f66d9278faa596c8d51a8e8a3e537dd8f44f/src/lgfx/v1/misc/enum.hpp#L135
-  StickCP2.Display.setTextDatum(top_left);
-  StickCP2.Display.drawString("Hello World!", 0, 0); // prints to the device screen at x = 0, y = 0
-  Serial.println("Hello World!"); // prints to the serial monitor
+  StickCP2.Display.drawString("Hello World!", 0, 0); // 0,0 = x,y
+  // no text wrapping, so print another string lower on the screen with y = 30
   /*** CUSTOMIZE END ***/
 }
 ```
@@ -124,12 +123,7 @@ void loop() {
 - Upload = sending the code to the device, where the code is now stored on the device, so when you disconnect it form your computer the code still lives on the device.
 - use upload when you are ready to upload. It will automagically compile first (becasue uploading code with syntax errors would be silly)!
 
-**1.2.3** Open up the "Serial Monitor" by clicking on the magnifying glass near the top right corner (the monitor will either open in a new window or at the bottom of your screen depending on your computer). &nbsp;&nbsp;&nbsp;&nbsp;
-   - This is where we will see any text within "Serial.println(...)".
-   - The _Serial_ commands allow Arduino IDE to send a message to your laptop.
-   - Baud rate = the rate at which information is transferred in a communication channel. "115200 baud" means that the serial port is capable of transferring a maximum of 115200 bits per second.
-
-<img src="https://github.com/romyaboudarham/M5StickCPlus2-Workshop/blob/main/media/HelloWorld.png" style="width: 720px; height: auto;">  
+<img src="https://github.com/romyaboudarham/M5StickCPlus2-Workshop/blob/main/media/compile-upload.png" style="width: 720px; height: auto;">  
 
 Success!
    
@@ -171,8 +165,6 @@ int screenHeight = 0; // this variable is used to set the screen height
 LGFX_Sprite* sprite;
 
 void setup() {
-  // initialize Serial Monitor to use baud rate 115200
-  Serial.begin(115200);
   // initiatlize the device using the M5StickCPlus2 library
   auto cfg = M5.config();
   StickCP2.begin(cfg);
@@ -191,6 +183,7 @@ void loop() {
   sprite->fillScreen(BLACK); // Clear the sprite by filling it with black
 
   /*** CUSTOMIZE - BEGIN ***/
+  // color options: https://github.com/m5stack/M5GFX/blob/b1a0e54e79a1c50d1d0d628524bbde7275423b5f/src/M5GFX.h#L143
   sprite->fillRect(0, 0, 100, 50, CYAN); // Draw rectangle: x (top-left), y (top-left), width, height, color
   /*** CUSTOMIZE - END ***/
 
@@ -212,29 +205,39 @@ sprite->fillTriangle(180, 135, 200, 100, 240, 135, YELLOW); // x0, y0, x1, y1, x
 
 ### 2.2 Moving the Shapes
 **2.2.1** VARIABLES! Make the following additions and changes in your code. &nbsp;&nbsp;&nbsp;&nbsp;
-- The 2 lines above loop() create **variables** (rectX, rectY) that hold **integers** (int) that represent the x and y coordinate of your rectangle. 1. If you have multiple rectangles, you will want multiple variables with distinct names. For example, rect1_X, rect2_X, etc.
-- The numbers for the x and y coordinates are now replaced with these variables.
+- The 2 lines above loop() create **variables** (rectX, rectY) that hold **integers** (int) that represent the x and y coordinate of your rectangle. 
 ```
 int rectX = 0; // <-- ADD
-int rectY = 0; // <-- ADD 
-
-void loop() {
-  ...
-   sprite->fillRect(rectX, rectY, 100, 50, CYAN); // <-- REPLACE the X & Y number values to rectX & rectY
-  ...
+int rectY = 0; // <-- ADD
+int rectSpeed = 1; // <-- ADD
 ```
-Verify to check for errors (checkmark in upper left)
+- Replace the rectangle's "0, 0" with "rectX, rectY"
+- If you have multiple rectangles, you will want multiple variables with distinct names for each respective coordinate. For example, rect1_X, rect2_X, etc.
+- Verify & Upload to observe that **nothing** has changed
 
-**2.2.2** IF STATEMENTS! &nbsp;&nbsp;&nbsp;&nbsp;
+**2.2.2** Lets move the rectangle across the screen
 
-"If it is raining, I will bring an umbrella."
+**QUESTION** Since we know that loop() is endlessing looping and drawing the rectangle at position (0,0), what do we need to do to the rectangle's X value to move it across the screen to the right?
+
+- ANSWER: increase rectX by adding to it in each loop. Make sure to reassign it to itself so the sum is updated
+```
+rectX = rectX + 1;
+```
+- add this line within loop(), before drawing the rectangle
+- the 1 represents the SPEED (move 1 pixel per frame). You can increase this number to move faster
+- replace 1 with the variable rectSpeed
+```
+rectX = rectX + rectSpeed;
+```
+
+### BUT MY RECTANGLE FLEW OFF THE SCREEN!!?!?!
+**2.2.3** IF STATEMENTS! &nbsp;&nbsp;&nbsp;&nbsp;
 
 An 'if' statement is like a question. If the answer is YES (true), you do something. If the answer is NO (false), you skip it or do something else.
 
-<img src="https://github.com/romyaboudarham/M5StickCPlus2-Workshop/blob/main/media/2-IF_statement.png" style="width: 700px; height: auto;">
+<img src="https://github.com/romyaboudarham/M5StickCPlus2-Workshop/blob/main/media/2-IF_statement-new.png" style="width: 800px; height: auto;">
 
-- **QUESTION** Since we know that loop() is endlessing looping and drawing the rectangle at position (0,0), what do we need to do to the rectangle's X value to move it across the screen to the right?
-- **QUESTION** The rectangle is going to move infinitely across and off the screen, how do we account for boundaries of the screen and have the shape move back and forth?  
+- **QUESTION** The rectangle is going to move infinitely across and off the screen, how do we account for boundaries of the screen and have the shape move back and forth?
 
 Final code for moving rectangle back and forth here: [Output_MovingRectangle.ino](examples/02_Output_MovingShapes/Output_MovingRectangle/Output_MovingRectangle.ino)
 - **CHALLENGE** move the rectangle up and down (hint: similar to moving rectX, but with rectY, a new variable for rectSpeedY, and using screenHeight)
@@ -261,8 +264,6 @@ int screenHeight = 0; // this variable is used to set the screen height
 LGFX_Sprite* sprite;
 
 void setup() {
-  // initialize Serial Monitor to use baud rate 115200
-  Serial.begin(115200);
   // initiatlize the device using the M5StickCPlus2 library
   auto cfg = M5.config();
   StickCP2.begin(cfg);
@@ -308,6 +309,7 @@ void loop() {
   }
    /*** CUSTOMIZE END ***/
 
+  // color options: https://github.com/m5stack/M5GFX/blob/b1a0e54e79a1c50d1d0d628524bbde7275423b5f/src/M5GFX.h#L143
   sprite->fillRect(rectX, rectY, rectWidth, rectHeight, ORANGE); // Draw rectangle: x (top-left), y (top-left), width, height, color
 
   sprite->pushSprite(0, 0); // Push the finished drawing from the sprite onto the actual screen
