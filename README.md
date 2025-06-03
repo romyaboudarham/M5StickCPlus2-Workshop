@@ -144,7 +144,8 @@ void loop() {
 - Upload = sending the code to the device, where the code is now stored on the device, so when you disconnect it form your computer the code still lives on the device.
 - use upload when you are ready to upload. It will automagically compile first (becasue uploading code with syntax errors would be silly)!
 
-<img src="https://github.com/romyaboudarham/M5StickCPlus2-Workshop/blob/main/media/compile-upload.png" style="width: 720px; height: auto;">  
+<img src="https://github.com/romyaboudarham/M5StickCPlus2-Workshop/blob/main/media/arduinoIDE-Buttons.png" style="width: 720px; height: auto;">  
+(don't worry about "Serial" for this workshop)
 
 #### How is this working??
 - The [setup()](https://www.arduino.cc/reference/en/language/structure/sketch/setup/) function is called when a sketch starts.
