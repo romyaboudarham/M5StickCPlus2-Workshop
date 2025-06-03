@@ -213,7 +213,7 @@ void loop() {
 
   /*** CUSTOMIZE - BEGIN ***/
   // color options: https://github.com/m5stack/M5GFX/blob/b1a0e54e79a1c50d1d0d628524bbde7275423b5f/src/M5GFX.h#L143
-  sprite->fillRect(0, 0, 100, 50, CYAN); // Draw rectangle: x (top-left), y (top-left), width, height, color
+  sprite->fillRect(0, 0, 100, 50, CYAN); // x (top-left), y (top-left), width, height, color
   /*** CUSTOMIZE - END ***/
 
   sprite->pushSprite(0, 0); // Push the finished drawing from the sprite onto the actual screen
@@ -239,6 +239,7 @@ sprite->fillTriangle(180, 135, 200, 100, 240, 135, YELLOW); // x0, y0, x1, y1, x
 int rectX = 0; // <-- ADD
 int rectY = 0; // <-- ADD
 int rectSpeed = 1; // <-- ADD
+int rectWidth = 50;
 ```
 - Replace the rectangle's "0, 0" with "rectX, rectY"
 - If you have multiple rectangles, you will want multiple variables with distinct names for each respective coordinate. For example, rect1_X, rect2_X, etc.
@@ -270,7 +271,7 @@ An 'if' statement is like a question. If the answer is YES (true), you do someth
    - ANSWER
   ```
   if (rectX + rectWidth > screenWidth || rectX < 0) { // screen boundary check, || = OR
-    rectSpeedX = -rectSpeedX; // if boundary hit, change the direction of movement
+    rectSpeedX = rectSpeedX * -1; // if boundary hit, change the direction of movement
   }
   ```
 
