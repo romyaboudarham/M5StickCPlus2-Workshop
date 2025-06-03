@@ -39,7 +39,7 @@ void loop() {
   /*** MOVE RECTANGLE - BEGIN ***/
   rectX = rectX + rectSpeedX; // Adds a value to X
   if (rectX + rectWidth > screenWidth || rectX < 0) { // screen boundary check
-    rectSpeedX = -rectSpeedX; // if boundary hit, change the direction of movement
+    rectSpeedX = rectSpeedX * -1; // if boundary hit, change the direction of movement
   }
 
   // draw updated rectangle
