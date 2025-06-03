@@ -8,6 +8,11 @@ M5StickCPlus2 watch & USB cables will be provided for you to use and keep during
 
 If you have questions prior to or after the workshop please contact Romy: romyaboudarham@gmail.com
 
+- [Link to all the examples](https://github.com/romyaboudarham/M5StickCPlus2-Workshop/tree/main/examples)
+- M5StackCPlus2 Documentation
+   - [Github Library](https://github.com/m5stack/M5StickCPlus2)
+   - [PDF Documentation](https://docs.rs-online.com/e4eb/A700000008182827.pdf)
+
 ## Section 0 - Before the Workshop
 ### 0.1 Install Arduino Software
 Arduino software (IDE) runs on Windows, Mac OSX, and Linux. Please download and install the (free) [Arduino software here](http://arduino.cc/en/Main/Software).  <!-- We prefer to use an older version of the Arduino IDE: Version 1.8.19. Feel free to download the newer version as well and run them both for comparison. -->
@@ -49,7 +54,25 @@ The Board Manager URL is a link that tells the Arduino software where to find th
  - Please interrupt any time with questions.
 
 ### Introducing the M5StickPlus2:
+- Place on your left hand
 <img src="https://github.com/romyaboudarham/M5StickCPlus2-Workshop/blob/main/media/m5stick_buttons.png" style="width: 500px; height: auto;">
+
+#### Features
+- ESP32-PICO-V3-02-Base，support WiFi
+- Built-in 6-Axis IMU
+- IR transmitter
+- Microphone
+- RTC (Real Time Clock)
+- Buttons, LCD(1.14 inch)
+- Built-in Lithium Polymer Battery@200mAh
+- Extendable Socket
+- Built-in Passive Buzzer
+- Wearable & Wall mounted
+- Compatible with multi-platform development:
+   - UIFlow
+   - MicroPython
+   - Arduino (What we are using today!)
+   - .NET nanoFramework
 
 ### 1.1 First steps: Verifying correct installation
 
@@ -73,11 +96,9 @@ The Board Manager URL is a link that tells the Arduino software where to find th
 
    <img src="https://github.com/romyaboudarham/M5StickCPlus2-Workshop/blob/main/media/successful-install.png" style="width: 700px; height: auto;">
 
-
-
 *******************************************************************************
 ### 1.2 Is this thing on?
-**1.2.1**  Copy the code below and paste it into a new, empty Arduino sketch _OR_ download and open this example sketch: [HelloWorld.ino](/examples/01_HelloWorld/HelloWorld/HelloWorld.ino) &nbsp;&nbsp;&nbsp;&nbsp;
+**1.2.1**  Copy the code below and paste it into a new, **EMPTY** Arduino sketch _OR_ download and open this example sketch: [HelloWorld.ino](/examples/01_HelloWorld/HelloWorld/HelloWorld.ino) &nbsp;&nbsp;&nbsp;&nbsp;
 
 ```cpp
 #include <M5StickCPlus2.h> // this 'include' line includes the M5StickCPlus2 library
@@ -142,7 +163,15 @@ Success!
 - Change the code to display "Hello YOUR-NAME" on the watch and in the Serial Monitor
 - Change the color, font, size, placement of the text
 - CHALLENGE: center the text (hint: will need to use screenWidth and screenHeight from lines 16 and 17)
+
+### Save your project & open a NEW sketch
+- File -> Save
+- File -> New Sketch
+  
+<img src="https://github.com/romyaboudarham/M5StickCPlus2-Workshop/blob/main/media/how-to-save.png" style="width: 600px; height: auto;"> 
+
 *******************************************************************************
+
 ## Section 2 - Let's make and move shapes oOOooOo pretty!
 ### 2.1 Making the Shapes
 Screens use a coordinate system where (0,0) starts at the top-left corner. The x-axis goes right and is the first number in the pair. The y-axis goes down and is the second number in the pair (x,y). Each pixel’s position is marked by how far it is from the top-left. This is how most LED and digital screens work when placing or lighting up pixels.  
@@ -238,12 +267,20 @@ An 'if' statement is like a question. If the answer is YES (true), you do someth
 <img src="https://github.com/romyaboudarham/M5StickCPlus2-Workshop/blob/main/media/2-IF_statement-new.png" style="width: 800px; height: auto;">
 
 - **QUESTION** The rectangle is going to move infinitely across and off the screen, how do we account for boundaries of the screen and have the shape move back and forth?
+   - ANSWER
+  ```
+  if (rectX + rectWidth > screenWidth || rectX < 0) { // screen boundary check, || = OR
+    rectSpeedX = -rectSpeedX; // if boundary hit, change the direction of movement
+  }
+  ```
 
 Final code for moving rectangle back and forth here: [Output_MovingRectangle.ino](examples/02_Output_MovingShapes/Output_MovingRectangle/Output_MovingRectangle.ino)
 - **CHALLENGE** move the rectangle up and down (hint: similar to moving rectX, but with rectY, a new variable for rectSpeedY, and using screenHeight)
 - **CHALLENGE** make all the shapes move!  
 
 Final code for moving all shapes here: [Output_MovingShapes.ino](examples/02_Output_MovingShapes/Output_MovingAllShapes/Output_MovingAllShapes.ino)
+
+*******************************************************************************
 
 ## Section 3 - Let's move a shape when we press a button!
 ### 3.1 Device Button Names
@@ -322,6 +359,8 @@ Final code for moving rectangle with Buttons presses: [Output_MovingRectangle.in
 
 **3.1.2** Brick Breaker Game &nbsp;&nbsp;&nbsp;&nbsp;
 - Copy and paste the following code in a new Arduino sketch. Verify & Upload. [Input_BreakBreaker.ino](examples/03_Input_BtnPress/Input_BrickBreaker/Input_BrickBreaker.ino)
+
+*******************************************************************************
 
 ## Section 4 Connect to the WIFI - Group Activity!!
 ### 4.1 Download an example folder from Github (04_Magic8Ball)
