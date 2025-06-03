@@ -105,13 +105,13 @@ void loop() {
 
   /*** CUSTOMIZE BEGIN ***/
   // font options: https://github.com/lovyan03/LovyanGFX/blob/55a0f66d9278faa596c8d51a8e8a3e537dd8f44f/src/lgfx/v1/lgfx_fonts.hpp#L329
-  StickCP2.Display.setTextFont(&fonts::Orbitron_Light_24);
+  StickCP2.Display.setTextFont(&fonts::Orbitron_Light_24); // 24 pixels high
   // color options: https://github.com/m5stack/M5GFX/blob/b1a0e54e79a1c50d1d0d628524bbde7275423b5f/src/M5GFX.h#L143
   StickCP2.Display.setTextColor(GREEN);
   StickCP2.Display.setTextSize(1); // try 2!
   // text reference point options: https://github.com/lovyan03/LovyanGFX/blob/55a0f66d9278faa596c8d51a8e8a3e537dd8f44f/src/lgfx/v1/misc/enum.hpp#L135
   StickCP2.Display.setTextDatum(top_left);
-  StickCP2.Display.drawString("Hello World!", 0, 0); // prints to the device screen
+  StickCP2.Display.drawString("Hello World!", 0, 0); // prints to the device screen at x = 0, y = 0
   Serial.println("Hello World!"); // prints to the serial monitor
   /*** CUSTOMIZE END ***/
 }
