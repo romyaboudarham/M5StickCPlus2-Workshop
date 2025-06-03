@@ -55,7 +55,7 @@ The Board Manager URL is a link that tells the Arduino software where to find th
 
 ### Introducing the M5StickPlus2:
 - Place on your left hand
-<img src="https://github.com/romyaboudarham/M5StickCPlus2-Workshop/blob/main/media/m5stick_buttons.png" style="width: 500px; height: auto;">
+<img src="https://github.com/romyaboudarham/M5StickCPlus2-Workshop/blob/main/media/m5stick_powerBtn.png" style="width: 500px; height: auto;">
 
 #### Features
 - ESP32-PICO-V3-02-Base，support WiFi
