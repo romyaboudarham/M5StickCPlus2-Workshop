@@ -239,7 +239,7 @@ sprite->fillTriangle(180, 135, 200, 100, 240, 135, YELLOW); // x0, y0, x1, y1, x
 int rectX = 0; // <-- ADD
 int rectY = 0; // <-- ADD
 int rectSpeed = 1; // <-- ADD
-int rectWidth = 50;
+int rectWidth = 50; // <-- ADD
 ```
 - Replace the rectangle's "0, 0" with "rectX, rectY"
 - If you have multiple rectangles, you will want multiple variables with distinct names for each respective coordinate. For example, rect1_X, rect2_X, etc.
