@@ -146,10 +146,6 @@ void loop() {
 
 <img src="https://github.com/romyaboudarham/M5StickCPlus2-Workshop/blob/main/media/compile-upload.png" style="width: 720px; height: auto;">  
 
-Success!
-   
-<img src="https://github.com/romyaboudarham/M5StickCPlus2-Workshop/blob/main/media/HelloWorldM5Stick.jpeg" style="width: 500px; height: auto;"> 
-
 #### How is this working??
 - The [setup()](https://www.arduino.cc/reference/en/language/structure/sketch/setup/) function is called when a sketch starts.
   - Use it to initialize variables, pin modes, start using libraries, etc. In our case, this is where we set up the screen display features (text color, font, orientation, default text etc.) 
@@ -158,6 +154,10 @@ Success!
   - The loop() functions runs continuously as long as the Arduino is powered on.
   - Each instruction is executed in order from top to bottom.
   - Arduino only executes one instruction at a time.
+ 
+Success!
+   
+<img src="https://github.com/romyaboudarham/M5StickCPlus2-Workshop/blob/main/media/HelloWorldM5Stick.jpeg" style="width: 500px; height: auto;"> 
  
 #### YOUR TURN
 - Change the code to display "Hello YOUR-NAME" on the watch and in the Serial Monitor
