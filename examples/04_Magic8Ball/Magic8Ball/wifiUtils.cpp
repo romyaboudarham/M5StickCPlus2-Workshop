@@ -3,6 +3,7 @@
 #include <M5StickCPlus2.h>
 
 void connectWiFi(const char* ssid, const char* password) {
+  StickCP2.Display.setTextSize(2);
   StickCP2.Display.clear();
   StickCP2.Display.println("Connecting to");
   StickCP2.Display.println(ssid);
@@ -15,5 +16,6 @@ void connectWiFi(const char* ssid, const char* password) {
 
   StickCP2.Display.clear();
   StickCP2.Display.printf("IP: %s\n", WiFi.localIP().toString().c_str());
+  StickCP2.Display.setTextSize(1);
   delay(1000);
 }

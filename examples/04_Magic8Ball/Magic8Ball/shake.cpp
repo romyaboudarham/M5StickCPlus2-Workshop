@@ -1,6 +1,6 @@
 #include "shake.h"
 
-#define SHAKE_THRESHOLD 500.0f  // how hard to shake before we fire
+#define SHAKE_THRESHOLD 900.0f  // how hard to shake before we fire
 
 uint32_t durationMs = 700;
 
