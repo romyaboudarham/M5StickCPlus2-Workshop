@@ -16,6 +16,7 @@ If you have questions prior to or after the workshop please contact Romy: romyab
 ## Section 0 - Before the Workshop
 ### 0.1 Install Arduino Software
 Arduino software (IDE) runs on Windows, Mac OSX, and Linux. Please download and install the (free) [Arduino software here](http://arduino.cc/en/Main/Software).  <!-- We prefer to use an older version of the Arduino IDE: Version 1.8.19. Feel free to download the newer version as well and run them both for comparison. -->
+   - MAC: Intel or Silicon chip? Check by clicking  -> About this Mac -> The first line "Chip" Should say either "Intel" or "Apple" (Silicon). Intel chips are typically Macs older than 2021.
 Please bring your laptop, with the software installed, to the workshop. **Laptops with the Arduino IDE installed will be provided for those without one**
 
 Additional instructions [on M5Stack's Arduino instructions here](https://docs.m5stack.com/en/arduino/arduino_ide) and [Adafruit's Arduino lessons here](https://learn.adafruit.com/ladyadas-learn-arduino-lesson-number-0/download-software)
@@ -365,8 +366,9 @@ Final code for moving rectangle with Buttons presses: [Output_MovingRectangle.in
 *******************************************************************************
 
 ## Section 4 Connect to the WIFI - Group Activity!!
-### 4.1 Download an example folder from Github (04_Magic8Ball)
-**4.1.1** Follow this [tutorial on how to download a folder from Github and launch the program](https://github.com/romyaboudarham/M5StickCPlus2-Workshop/blob/main/examples/README.md#downloading-a-folder-of-files)
+### 4.1 Download the Examples
+**4.1.1** [Download & Unzip the folder here](https://drive.google.com/file/d/1qncJ4F0mHb7bMmLNZ01Gtuc7_9cXOydY/view?usp=drive_link) (ALL FILES MUST BE IN A FOLDER CALLED Magic8Ball)
+- OR Follow this [tutorial on how to download a folder from Github and launch the program](https://github.com/romyaboudarham/M5StickCPlus2-Workshop/blob/main/examples/README.md#downloading-a-folder-of-files)
 
 **4.1.2** Verify & Upload
 - **OBSERVE** After shaking, the screen should say "No Tasks!"
