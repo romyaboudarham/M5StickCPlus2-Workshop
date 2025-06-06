@@ -237,7 +237,7 @@ sprite->fillTriangle(180, 135, 200, 100, 240, 135, YELLOW); // x0, y0, x1, y1, x
 ### 2.2 Moving the Shapes
 **2.2.1** VARIABLES! Make the following additions and changes in your code. &nbsp;&nbsp;&nbsp;&nbsp;
 - The 2 lines above loop() create **variables** (rectX, rectY) that hold **integers** (int) that represent the x and y coordinate of your rectangle. 
-```
+```cpp
 int rectX = 0; // <-- ADD
 int rectY = 0; // <-- ADD
 int rectSpeed = 1; // <-- ADD
@@ -252,13 +252,13 @@ int rectWidth = 50; // <-- ADD
 **QUESTION** Since we know that loop() is endlessing looping and drawing the rectangle at position (0,0), what do we need to do to the rectangle's X value to move it across the screen to the right?
 
 - ANSWER: increase rectX by adding to it in each loop. Make sure to reassign it to itself so the sum is updated
-```
+```cpp
 rectX = rectX + 1;
 ```
 - add this line within loop(), before drawing the rectangle
 - the 1 represents the SPEED (move 1 pixel per frame). You can increase this number to move faster
 - replace 1 with the variable rectSpeed
-```
+```cpp
 rectX = rectX + rectSpeed;
 ```
 
@@ -291,7 +291,7 @@ Final code for moving all shapes here: [Output_MovingShapes.ino](examples/02_Out
 
 **3.1.1** Copy the code below and paste it into a new, empty Arduino sketch &nbsp;&nbsp;&nbsp;&nbsp; 
 - Verify & Upload. (Right arrow in upper left) 
-```
+```cpp
 #include <M5StickCPlus2.h> // this 'include' line includes the M5StickCPlus2 library
                            // this allows us to use functions written for this specific device
 
@@ -376,3 +376,105 @@ Final code for moving rectangle with Buttons presses: [Output_MovingRectangle.in
 ### 4.2 LETS ADD TASKS!
 **4.2.1** Add tasks via this google form [https://forms.gle/N2e3ArNAN42STrs97](https://forms.gle/N2e3ArNAN42STrs97)
 - Click Button B to refresh (top left)
+
+### 4.3 NO WIFI?
+REPLACE Magic8Ball.ino with this code:
+```cpp
+#include <M5StickCPlus2.h>
+#include "wifiUtils.h"
+#include "taskFetcher.h"
+#include "shake.h"
+
+bool wasShaking = false;
+
+int screenWidth = 0;  // this variable is used to set the screen width
+int screenHeight = 0; // this variable is used to set the screen height
+
+int numTasks;
+
+vector<String> tasks;
+
+void setup() {
+  //  init StickCP2
+  auto cfg = M5.config();
+  StickCP2.begin(cfg);
+  StickCP2.Display.setRotation(1);
+  StickCP2.Display.setTextSize(1);
+
+  Serial.begin(115200);
+  randomSeed(analogRead(0));
+
+  screenWidth = StickCP2.Display.width();
+  screenHeight = StickCP2.Display.height();
+
+  // CUSTOMIZE TASKS
+  tasks.push_back("Take a deep breath");
+  tasks.push_back("Stretch for 30 seconds");
+  tasks.push_back("Crawl on the ground");
+  tasks.push_back("Wave through the window");
+  tasks.push_back("Touch something green");
+  tasks.push_back("Pet the plant");
+  tasks.push_back("Do 10 jumping jacks");
+  tasks.push_back("Make an animal sound");
+  tasks.push_back("High five Romy");
+  tasks.push_back("Cast a spell");
+
+  loadStartUpScreen();
+
+  numTasks = 0;
+}
+
+void loop() {
+  StickCP2.update();
+
+  // Shake detection: on falling edge, print a new task
+  bool isShaking = detectShaking();
+  if (!isShaking && wasShaking) {
+    showTaskInTriangle();
+  }
+  wasShaking = isShaking;
+
+  // BtnA → complete task
+  if (StickCP2.BtnA.wasPressed()) {
+    StickCP2.Speaker.tone(3500, 40);
+    delay(50);
+    StickCP2.Speaker.tone(4000, 40);
+    delay(50);
+    StickCP2.Speaker.tone(4700, 100);  // Longer last tone for completion
+    numTasks++;
+  }
+
+  showNumTasks();
+}
+
+// displays task in the triangle
+void showTaskInTriangle() {
+  /*** CUSTOMIZE BEGIN ***/
+  StickCP2.Display.setTextFont(&fonts::Orbitron_Light_24);  // Vector font — don't setTextSize()
+  // color options: https://github.com/lovyan03/LovyanGFX/blob/55a0f66d9278faa596c8d51a8e8a3e537dd8f44f/src/lgfx/v1/misc/enum.hpp#L56
+  // create custom RGB color: uint32_t myBlue = StickCP2.Display.color565(0, 0, 255); // Pure blue
+  drawMagicTriangle(TFT_WHITE, TFT_BLUE); // 1st value: triangle outline color, 2nd value: triangle fill color 
+  StickCP2.Display.setTextDatum(MC_DATUM);
+  StickCP2.Display.setTextColor(TFT_WHITE, TFT_ORANGE);
+  /*** CUSTOMIZE END ***/
+
+  String msg = tasks.empty() ? "No Tasks!" : tasks[random(tasks.size())].c_str();
+  drawWrappedText(msg, StickCP2.Display.width() / 2, 30, StickCP2.Display.width() - 20);
+}
+
+void loadStartUpScreen() {
+  StickCP2.Display.clear();
+  StickCP2.Display.setTextFont(&fonts::Orbitron_Light_24);  // Vector font — don't setTextSize()
+  StickCP2.Display.setTextDatum(MC_DATUM);
+  drawMagicTriangle(TFT_WHITE, TFT_BLUE);
+  StickCP2.Display.setTextColor(TFT_WHITE, TFT_ORANGE);
+  StickCP2.Display.drawString("SHAKE ME", StickCP2.Display.width() / 2, StickCP2.Display.height() / 2);
+}
+
+void showNumTasks() {
+  StickCP2.Display.setTextFont(&fonts::lgfxJapanGothic_16); 
+  StickCP2.Display.setTextColor(TFT_WHITE, TFT_BLACK);  // Background will auto-clear
+  StickCP2.Display.setCursor(5, StickCP2.Display.height()-15);
+  StickCP2.Display.printf("completed: %d", numTasks);
+}
+```
