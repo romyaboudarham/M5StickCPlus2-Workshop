@@ -384,6 +384,7 @@ REPLACE Magic8Ball.ino with this code:
 #include "wifiUtils.h"
 #include "taskFetcher.h"
 #include "shake.h"
+#include <vector>
 
 bool wasShaking = false;
 
@@ -392,7 +393,7 @@ int screenHeight = 0; // this variable is used to set the screen height
 
 int numTasks;
 
-vector<String> tasks;
+std::vector<String> tasks_nowifi;
 
 void setup() {
   //  init StickCP2
@@ -408,16 +409,16 @@ void setup() {
   screenHeight = StickCP2.Display.height();
 
   // CUSTOMIZE TASKS
-  tasks.push_back("Take a deep breath");
-  tasks.push_back("Stretch for 30 seconds");
-  tasks.push_back("Crawl on the ground");
-  tasks.push_back("Wave through the window");
-  tasks.push_back("Touch something green");
-  tasks.push_back("Pet the plant");
-  tasks.push_back("Do 10 jumping jacks");
-  tasks.push_back("Make an animal sound");
-  tasks.push_back("High five Romy");
-  tasks.push_back("Cast a spell");
+  tasks_nowifi.push_back("Take a deep breath");
+  tasks_nowifi.push_back("Stretch for 30 seconds");
+  tasks_nowifi.push_back("Crawl on the ground");
+  tasks_nowifi.push_back("Wave through the window");
+  tasks_nowifi.push_back("Touch something green");
+  tasks_nowifi.push_back("Pet the plant");
+  tasks_nowifi.push_back("Do 10 jumping jacks");
+  tasks_nowifi.push_back("Make an animal sound");
+  tasks_nowifi.push_back("High five Romy");
+  tasks_nowifi.push_back("Cast a spell");
 
   loadStartUpScreen();
 
@@ -458,7 +459,7 @@ void showTaskInTriangle() {
   StickCP2.Display.setTextColor(TFT_WHITE, TFT_ORANGE);
   /*** CUSTOMIZE END ***/
 
-  String msg = tasks.empty() ? "No Tasks!" : tasks[random(tasks.size())].c_str();
+  String msg = tasks_nowifi.empty() ? "No Tasks!" : tasks_nowifi[random(tasks_nowifi.size())].c_str();
   drawWrappedText(msg, StickCP2.Display.width() / 2, 30, StickCP2.Display.width() - 20);
 }
 
