@@ -51,11 +51,11 @@ void loop() {
 
   // BtnA → complete task
   if (StickCP2.BtnA.wasPressed()) {
-    StickCP2.Speaker.tone(880, 100);   // A5
-    delay(100);
-    StickCP2.Speaker.tone(1047, 100);  // C6
-    delay(100);
-    StickCP2.Speaker.tone(1319, 150);  // E6
+    StickCP2.Speaker.tone(3500, 40);
+    delay(50);
+    StickCP2.Speaker.tone(4000, 40);
+    delay(50);
+    StickCP2.Speaker.tone(4700, 100);  // Longer last tone for completion
     numTasks++;
   }
 
