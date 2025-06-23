@@ -15,8 +15,9 @@ If you have questions prior to or after the workshop please contact Romy: romyab
 
 ## Section 0 - Before the Workshop
 ### 0.1 Install Arduino Software
-Arduino software (IDE) runs on Windows, Mac OSX, and Linux. Please download and install the (free) [Arduino software here](http://arduino.cc/en/Main/Software).  <!-- We prefer to use an older version of the Arduino IDE: Version 1.8.19. Feel free to download the newer version as well and run them both for comparison. -->
-   - MAC: Intel or Silicon chip? Check by clicking  -> About this Mac -> The first line "Chip" Should say either "Intel" or "Apple" (Silicon). Intel chips are typically Macs older than 2021.
+Arduino software (IDE) runs on Windows, Mac OSX, and Linux. Please download and install the (free) [Arduino the software here (Version 1.8.18)](https://www.arduino.cc/en/software/OldSoftwareReleases/).  <!-- I prefer to use an older version of the Arduino IDE: Version 1.8.19 for teaching-->
+- You'll be prompted to DONATE. Do as you wish but below everything will be the "Just Download" for free button.
+
 Please bring your laptop, with the software installed, to the workshop. **Laptops with the Arduino IDE installed will be provided for those without one**
 
 Additional instructions [on M5Stack's Arduino instructions here](https://docs.m5stack.com/en/arduino/arduino_ide) and [Adafruit's Arduino lessons here](https://learn.adafruit.com/ladyadas-learn-arduino-lesson-number-0/download-software)
@@ -31,7 +32,10 @@ The Board Manager URL is a link that tells the Arduino software where to find th
 
 <img src="https://github.com/romyaboudarham/M5StickCPlus2-Workshop/blob/main/media/0.2.2b-open_urls.png" style="width: 700px; height: auto;">
    
-   - Copy this URL: ```https://static-cdn.m5stack.com/resource/arduino/package_m5stack_index.json```
+   - Copy this URL:
+     ```
+     https://static-cdn.m5stack.com/resource/arduino/package_m5stack_index.json
+     ```
    - Paste the URL into "Additional Board Manager URLs" text field
 
 <img src="https://github.com/romyaboudarham/M5StickCPlus2-Workshop/blob/main/media/0.2.2c-paste_url.png" style="width: 700px; height: auto;">
