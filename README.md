@@ -77,6 +77,7 @@ brew install python
 pip3 install esptool pyserial cryptography
 ```
 <img src="https://github.com/romyaboudarham/M5StickCPlus2-Workshop/blob/main/media/0.4.1c_install.gif" style="width: 700px; height: auto;">
+
 ## Section 1 - WELCOME to the WORKSHOP!!
  - Please interrupt any time with questions.
 
