@@ -14,9 +14,10 @@ If you have questions prior to or after the workshop please contact Romy: romyab
    - [PDF Documentation](https://docs.rs-online.com/e4eb/A700000008182827.pdf)
 
 ## Section 0 - Before the Workshop
+Have at least 5GB of free storage space
 ### 0.1 Install Arduino Software
 Arduino software (IDE) runs on Windows, Mac OSX, and Linux. Please download and install the (free) [Arduino software here](http://arduino.cc/en/Main/Software).
-   - MAC: Intel or Silicon chip? Check by clicking  -> About this Mac -> The first line "Chip" Should say either "Intel" or "Apple" (Silicon). Intel chips are typically Macs older than 2021.
+   - MAC: Intel or Silicon chip? Check by clicking  >About this Mac > The first line "Chip" Should say either "Intel" or "Apple" (Silicon). Intel chips are typically Macs older than 2021.
    - You'll be prompted to DONATE. Do as you wish but below everything will be the "Just Download" for free button.
 
 Please bring your laptop, with the software installed, to the workshop. **Laptops with the Arduino IDE installed will be provided for those without one**
@@ -28,7 +29,7 @@ The Board Manager URL is a link that tells the Arduino software where to find th
 
 **0.2.1** Open Arduino Software (IDE) &nbsp;&nbsp;&nbsp;&nbsp;
 
-**0.2.2** Click _Arduino->Settings->Add Aditional Board Manager URLS_ &nbsp;&nbsp;&nbsp;&nbsp;
+**0.2.2** Click _Arduino > Settings > Add Aditional Board Manager URLS_ &nbsp;&nbsp;&nbsp;&nbsp;
 <img src="https://github.com/romyaboudarham/M5StickCPlus2-Workshop/blob/main/media/0.2.2a-arudino_settings.png" style="width: 700px; height: auto;">
 
 <img src="https://github.com/romyaboudarham/M5StickCPlus2-Workshop/blob/main/media/0.2.2b-open_urls.png" style="width: 700px; height: auto;">
@@ -56,6 +57,26 @@ The Board Manager URL is a link that tells the Arduino software where to find th
    - ALTERNATE: You can also access the Library Manager like this:
 <img src="https://github.com/romyaboudarham/M5StickCPlus2-Workshop/blob/main/media/0.3.1b-alt_open_library_manager.png" style="width: 700px; height: auto;">
 
+### 0.4 MAC USERS: Install Python + Xcode Command Line Tools (We can also do this together in the Workshop)
+**0.4.1** Open up your terminal
+- Press ⌘ + Space (the command key ⌘ is next to the spacebar)
+- Type: Terminal
+- Hit Enter
+<img src="https://github.com/romyaboudarham/M5StickCPlus2-Workshop/blob/main/media/0.4.1a_terminal.png" style="width: 700px; height: auto;">
+
+OR if you prefer using the mouse:
+
+- _Finder > Applications > Utilities > Terminal_
+<img src="https://github.com/romyaboudarham/M5StickCPlus2-Workshop/blob/main/media/0.4.1b_terminal.png" style="width: 700px; height: auto;">
+
+**0.4.1** Copy & Paste this whole thing into the Terminal and click **ENTER**:
+```
+xcode-select --install
+which brew || /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+brew install python
+pip3 install esptool pyserial cryptography
+```
+<img src="https://github.com/romyaboudarham/M5StickCPlus2-Workshop/blob/main/media/0.4.1c_install.gif" style="width: 700px; height: auto;">
 ## Section 1 - WELCOME to the WORKSHOP!!
  - Please interrupt any time with questions.
 
@@ -89,9 +110,9 @@ The Board Manager URL is a link that tells the Arduino software where to find th
 
 **1.1.2** Open Arduino software (IDE) &nbsp;&nbsp;&nbsp;&nbsp;
 
-**1.1.3** Select _Tools->Board-> M5Stack->M5StickCPlus2_ (If you don't see "M5StickCPlus2" you may not have correctly installed the board manager URL in the previous step) &nbsp;&nbsp;&nbsp;&nbsp;
+**1.1.3** Select _Tools > Board > M5Stack > M5StickCPlus2_ (If you don't see "M5StickCPlus2" you may not have correctly installed the board manager URL in the previous step) &nbsp;&nbsp;&nbsp;&nbsp;
 
-**1.1.4** Select _Tools -> Port_ &nbsp;&nbsp;&nbsp;&nbsp;
+**1.1.4** Select _Tools  >  Port_ &nbsp;&nbsp;&nbsp;&nbsp;
    - Windows? Chose the largest COM number
      - No COMs? Raise your hand for help
    - Mac OS X? Chose either usbserial - you should also see _(LilyGo T-Display)_
@@ -172,8 +193,8 @@ Success!
 - CHALLENGE: center the text (hint: will need to use screenWidth and screenHeight from lines 16 and 17)
 
 ### Save your project & open a NEW sketch
-- File -> Save
-- File -> New Sketch
+- File > Save
+- File > New Sketch
   
 <img src="https://github.com/romyaboudarham/M5StickCPlus2-Workshop/blob/main/media/how-to-save.png" style="width: 600px; height: auto;"> 
 
