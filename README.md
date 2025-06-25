@@ -15,8 +15,9 @@ If you have questions prior to or after the workshop please contact Romy: romyab
 
 ## Section 0 - Before the Workshop
 ### 0.1 Install Arduino Software
-Arduino software (IDE) runs on Windows, Mac OSX, and Linux. Please download and install the (free) [Arduino the software here (Version 1.8.18)](https://www.arduino.cc/en/software/OldSoftwareReleases/).  <!-- I prefer to use an older version of the Arduino IDE: Version 1.8.19 for teaching-->
-- You'll be prompted to DONATE. Do as you wish but below everything will be the "Just Download" for free button.
+Arduino software (IDE) runs on Windows, Mac OSX, and Linux. Please download and install the (free) [Arduino software here](http://arduino.cc/en/Main/Software).
+   - MAC: Intel or Silicon chip? Check by clicking  -> About this Mac -> The first line "Chip" Should say either "Intel" or "Apple" (Silicon). Intel chips are typically Macs older than 2021.
+   - You'll be prompted to DONATE. Do as you wish but below everything will be the "Just Download" for free button.
 
 Please bring your laptop, with the software installed, to the workshop. **Laptops with the Arduino IDE installed will be provided for those without one**
 
