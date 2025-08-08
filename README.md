@@ -193,11 +193,26 @@ Success!
 - Change the color, font, size, placement of the text
 - CHALLENGE: center the text (hint: will need to use screenWidth and screenHeight from lines 16 and 17)
 
+- COMPILE & UPLOAD the code
+<img src="https://github.com/romyaboudarham/M5StickCPlus2-Workshop/blob/main/media/arduinoIDE-Buttons.png" style="width: 720px; height: auto;"> 
+
+**1.2.2a** "Compile" the code to the device by clicking the **checkmark** in the top left corner &nbsp;&nbsp;&nbsp;&nbsp;
+   - Compile = translate this code (C++) into machine-readable language
+   - Use compile when manipulating code to make sure you haven't caused errors as you're working
+
+**1.2.2b** "Upload" the code to the device by clicking the **right arrow** in the top left corner &nbsp;&nbsp;&nbsp;&nbsp;
+- Upload = sending the code to the device, where the code is now stored on the device, so when you disconnect it form your computer the code still lives on the device.
+- use upload when you are ready to upload. It will automagically compile first (becasue uploading code with syntax errors would be silly)!
+-  
+(don't worry about "Serial" for this workshop)
+
+<!--
 ### Save your project & open a NEW sketch
 - File > Save
 - File > New Sketch
   
 <img src="https://github.com/romyaboudarham/M5StickCPlus2-Workshop/blob/main/media/how-to-save.png" style="width: 600px; height: auto;"> 
+-->
 
 *******************************************************************************
 
