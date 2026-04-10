@@ -412,7 +412,7 @@ Final code for moving rectangle with Buttons presses: [Output_MovingRectangle.in
 
 ## Section 4 Connect to the WIFI - Group Activity!!
 ### 4.1 Download the Examples
-**4.1.1** [Download & Unzip the folder here](https://drive.google.com/file/d/1qncJ4F0mHb7bMmLNZ01Gtuc7_9cXOydY/view?usp=drive_link) (ALL FILES MUST BE IN A FOLDER CALLED Magic8Ball)
+**4.1.1** [Download & Unzip the folder here](https://drive.google.com/file/d/1NsAbqLvTQMfzXKD4ZvBfJzDRRmWQ7KZe/view?usp=drive_link) (ALL FILES MUST BE IN A FOLDER CALLED Magic8Ball)
 - OR Follow this [tutorial on how to download a folder from Github and launch the program](https://github.com/romyaboudarham/M5StickCPlus2-Workshop/blob/main/examples/README.md#downloading-a-folder-of-files)
 
 **4.1.2** Verify & Upload
