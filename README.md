@@ -237,6 +237,11 @@ void setup() {
   sprite->createSprite(screenWidth, screenHeight); // Set the sprite size to cover the full screen
 }
 
+int rectX = 0;
+int rectY = 0;
+int rectSpeed = 1;
+int rectWidth = 50;
+
 void loop() {
   sprite->fillScreen(BLACK); // Clear the sprite by filling it with black
 
@@ -262,6 +267,7 @@ sprite->fillTriangle(180, 135, 200, 100, 240, 135, YELLOW); // x0, y0, x1, y1, x
 &ensp; **YOUR TURN:** Change the values of the shapes and make some art!
 
 ### 2.2 Moving the Shapes
+<!-- 
 **2.2.1** VARIABLES! Make the following additions and changes in your code. &nbsp;&nbsp;&nbsp;&nbsp;
 - The 2 lines above loop() create **variables** (rectX, rectY) that hold **integers** (int) that represent the x and y coordinate of your rectangle. 
 ```cpp
@@ -269,6 +275,18 @@ int rectX = 0; // <-- ADD
 int rectY = 0; // <-- ADD
 int rectSpeed = 1; // <-- ADD
 int rectWidth = 50; // <-- ADD
+```
+- Replace the rectangle's "0, 0" with "rectX, rectY"
+- If you have multiple rectangles, you will want multiple variables with distinct names for each respective coordinate. For example, rect1_X, rect2_X, etc.
+- Verify & Upload to observe that **nothing** has changed --> 
+
+**2.2.1** VARIABLES! Locate these lines in your code (above loop()). &nbsp;&nbsp;&nbsp;&nbsp;
+- These are **variables** that hold **integers** (int) that represent the x and y coordinate of your rectangle. 
+```cpp
+int rectX = 0;
+int rectY = 0;
+int rectSpeed = 1;
+int rectWidth = 50;
 ```
 - Replace the rectangle's "0, 0" with "rectX, rectY"
 - If you have multiple rectangles, you will want multiple variables with distinct names for each respective coordinate. For example, rect1_X, rect2_X, etc.
